@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { QuickBenefits } from './components/QuickBenefits';
 import { PainBlock } from './components/PainBlock';
 import { HowItWorks } from './components/HowItWorks';
 import { EnergyCalculator } from './components/EnergyCalculator';
@@ -15,44 +16,46 @@ import { Footer } from './components/Footer';
 export default function App() {
   return (
     <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#00B86B] selection:text-white font-sans antialiased">
-      {/* Fixed Navigation Header */}
+      {/* 1. Header */}
       <Header />
 
       <main>
-        {/* Main Hero Section */}
+        {/* 2. Hero */}
         <Hero />
 
-        {/* Section 2: Pain Block - Financial Impact */}
+        {/* 3. Bloco Rápido de Benefícios */}
+        <QuickBenefits />
+
+        {/* 4. Cards de Perfil & 5. Impacto da Conta */}
         <PainBlock />
 
-        {/* Section 3: How It Works Flow */}
+        {/* 6. Como Funciona */}
         <HowItWorks />
 
-        {/* Section 4: Interactive Energy Calculator & Diagnostic Result */}
+        {/* 7. Calculadora & 8. Resultado */}
         <EnergyCalculator />
 
-        {/* Section 5: Legacy Energy Solutions */}
+        {/* 9. Soluções Comerc */}
         <SolutionsSection />
 
-        {/* Section 6: Why Legacy Method */}
+        {/* 10. Por Que Começar Pela Análise & 11. Frase Institucional */}
         <LegacyMethodSection />
 
-        {/* Section 7: Key Findings & Benefits */}
+        {/* 12. O Que Você Descobre */}
         <BenefitsSection />
 
-        {/* Section 8: Frequently Asked Questions */}
+        {/* 13. FAQ Enxuto */}
         <FAQSection />
 
-        {/* Section 9: Final High Impact Conversion CTA */}
+        {/* 14. CTA Final */}
         <FinalCTA />
       </main>
 
-      {/* Floating WhatsApp Action Trigger */}
+      {/* Floating WhatsApp Action Button */}
       <FloatingWhatsApp />
 
-      {/* Corporate Footer */}
+      {/* 15. Footer */}
       <Footer />
     </div>
   );
 }
-

@@ -7,110 +7,76 @@ export const HowItWorks: React.FC = () => {
       number: '01',
       title: 'Informe seus dados',
       icon: FormInput,
-      description: 'Você preenche informações básicas sobre consumo, cidade e perfil de consumo.',
-      items: [
-        'Tipo de cliente (PF ou CNPJ)',
-        'Valor médio da conta de energia',
-        'Cidade e Estado do imóvel',
-        'Perfil do imóvel ou operação',
-      ],
+      description: 'Preencha informações básicas sobre consumo, cidade e tipo de imóvel.',
     },
     {
       number: '02',
-      title: 'A calculadora analisa seu cenário',
+      title: 'A calculadora analisa seu perfil',
       icon: Cpu,
-      description: 'O sistema cruza tipo de cliente, valor de conta, imóvel e objetivo.',
-      items: [
-        'Avaliação de potencial financeiro',
-        'Status do imóvel e telhado',
-        'Preferência por obras ou assinatura',
-        'Mapeamento da rota mais vantajosa',
-      ],
+      description: 'O sistema cruza seu consumo e localização para encontrar a rota ideal.',
     },
     {
       number: '03',
-      title: 'Receba uma solução indicada',
+      title: 'Receba uma rota indicada',
       icon: Route,
-      description: 'A página mostra uma rota inicial compatível com seu perfil de consumo.',
-      items: [
-        'Assinatura de energia solar',
-        'Solução energética empresarial',
-        'Gestão ou Mercado Livre de Energia',
-        'Diagnóstico consultivo de consumo',
-      ],
+      description: 'Veja um diagnóstico inicial com a solução Comerc mais compatível.',
     },
     {
       number: '04',
       title: 'Continue pelo WhatsApp',
       icon: MessageSquareText,
-      description: 'Seus dados já chegam organizados para o atendimento consultivo da Comerc.',
-      items: [
-        'Mensagem automática estruturada',
-        'Atendimento ágil com especialistas',
-        'Análise sem compromisso inicial',
-        'Acompanhamento de viabilidade',
-      ],
+      description: 'Envie seus dados formatados diretamente para o atendimento especializado.',
     },
   ];
 
   return (
-    <section id="como-funciona" className="py-20 bg-white relative overflow-hidden">
+    <section id="como-funciona" className="py-12 md:py-16 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
-            Fluxo em 4 Etapas
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
+          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
+            Simplicidade & Agilidade
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
-            Como a <span className="text-gradient-green">simulação funciona</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            Como <span className="text-gradient-green">funciona</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#475569]">
-            Um processo simples e inteligente para analisar seu consumo e indicar a melhor rota de economia energética da Comerc.
+          <p className="text-sm sm:text-base text-[#475569] font-medium">
+            Entenda em 4 passos simples como é feita a sua simulação energética.
           </p>
         </div>
 
-        {/* 4 Steps Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        {/* 4 Steps Horizontal Row Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={idx}
-                className="glass-card p-6 rounded-2xl border border-slate-200 hover:border-[#00B86B] transition-all duration-300 group flex flex-col justify-between relative bg-white shadow-sm"
+                className="p-5 rounded-2xl border border-slate-200 hover:border-[#00B86B] transition-all group relative bg-white shadow-sm flex flex-col justify-between"
               >
-                {/* Step Badge & Number */}
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl font-black text-[#00B86B] tracking-wider">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-2xl font-black text-[#00B86B] tracking-wider">
                       {step.number}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#00B86B] group-hover:scale-110 transition-transform">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#00B86B] group-hover:scale-110 transition-transform">
+                      <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#00B86B] transition-colors">
+                  <h3 className="text-base font-bold text-[#0F172A] mb-1.5 group-hover:text-[#00B86B] transition-colors">
                     {step.title}
                   </h3>
 
-                  <p className="text-xs text-[#475569] mb-4 leading-relaxed font-medium">
+                  <p className="text-xs text-[#475569] leading-relaxed font-medium">
                     {step.description}
                   </p>
-
-                  <ul className="space-y-2 text-xs text-[#475569]">
-                    {step.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00B86B] mt-1 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
 
                 {/* Connector arrow on desktop */}
                 {idx < 3 && (
                   <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20">
                     <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-[#00B86B] shadow-sm">
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3 h-3" />
                     </div>
                   </div>
                 )}
@@ -122,3 +88,4 @@ export const HowItWorks: React.FC = () => {
     </section>
   );
 };
+

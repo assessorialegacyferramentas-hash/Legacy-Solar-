@@ -57,22 +57,16 @@ export const Header: React.FC = () => {
               Calculadora
             </button>
             <button
-              onClick={() => scrollToSection('como-funciona')}
-              className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
-            >
-              Como Funciona
-            </button>
-            <button
               onClick={() => scrollToSection('solucoes')}
               className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
             >
               Soluções
             </button>
             <button
-              onClick={() => scrollToSection('beneficios')}
+              onClick={() => scrollToSection('como-funciona')}
               className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
             >
-              Benefícios
+              Como Funciona
             </button>
             <button
               onClick={() => scrollToSection('faq')}
@@ -89,7 +83,7 @@ export const Header: React.FC = () => {
               className="neon-glow-btn px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 cursor-pointer shadow-md"
             >
               <Zap className="w-4 h-4 fill-current text-white" />
-              <span>Calcular minha economia</span>
+              <span>Calcular economia</span>
             </button>
           </div>
 
@@ -112,8 +106,15 @@ export const Header: React.FC = () => {
               onClick={() => scrollToSection('calculadora')}
               className="flex items-center justify-between p-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-left"
             >
-              <span>Calculadora de Economia</span>
+              <span>Calculadora</span>
               <ChevronRight className="w-4 h-4 text-[#00B86B]" />
+            </button>
+            <button
+              onClick={() => scrollToSection('solucoes')}
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
+            >
+              <span>Soluções</span>
+              <ChevronRight className="w-4 h-4 text-slate-500" />
             </button>
             <button
               onClick={() => scrollToSection('como-funciona')}
@@ -123,24 +124,10 @@ export const Header: React.FC = () => {
               <ChevronRight className="w-4 h-4 text-slate-500" />
             </button>
             <button
-              onClick={() => scrollToSection('solucoes')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
-            >
-              <span>Soluções Energéticas</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
-            <button
-              onClick={() => scrollToSection('beneficios')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
-            >
-              <span>Benefícios</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
-            <button
               onClick={() => scrollToSection('faq')}
               className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
             >
-              <span>Perguntas Frequentes</span>
+              <span>Dúvidas</span>
               <ChevronRight className="w-4 h-4 text-slate-500" />
             </button>
           </nav>
@@ -149,7 +136,7 @@ export const Header: React.FC = () => {
             className="w-full neon-glow-btn py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 text-base cursor-pointer"
           >
             <Zap className="w-5 h-5 fill-current text-white" />
-            <span>Calcular minha economia</span>
+            <span>Calcular economia</span>
           </button>
         </div>
       )}

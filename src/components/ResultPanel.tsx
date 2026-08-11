@@ -17,11 +17,14 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
           <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
-            Diagnóstico Gerado com Sucesso
+            Análise Concluída
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2">
-            Resultado da Simulação de {result.leadName}
+            Seu diagnóstico inicial está pronto
           </h3>
+          <p className="text-xs sm:text-sm text-[#475569] font-medium mt-1">
+            Com base nas informações preenchidas para {result.leadName}, identificamos uma rota inicial para sua análise energética.
+          </p>
         </div>
 
         <div className="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-xl border border-slate-200">
@@ -95,7 +98,7 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
           className="neon-glow-btn px-8 py-4 rounded-xl text-base sm:text-lg font-black inline-flex items-center justify-center gap-3 cursor-pointer shadow-xl transition-all hover:scale-105"
         >
           <MessageSquare className="w-6 h-6 fill-current text-white" />
-          <span>Enviar meus dados para a Comerc</span>
+          <span>Continuar pelo WhatsApp</span>
           <ArrowRight className="w-5 h-5 text-white" />
         </a>
 

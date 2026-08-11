@@ -141,20 +141,20 @@ export const EnergyCalculator: React.FC = () => {
   const progress = calculateProgress();
 
   return (
-    <section id="calculadora" className="py-20 bg-[#F8FAFC] relative overflow-hidden border-t border-b border-slate-200">
+    <section id="calculadora" className="py-12 md:py-16 bg-[#F8FAFC] relative overflow-hidden border-t border-b border-slate-200">
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-radial-green opacity-40 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
+          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
             Calculadora de Economia
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight">
             Simule seu <span className="text-gradient-green">potencial de economia</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#475569]">
-            Responda algumas perguntas e receba um diagnóstico inicial para entender qual solução de energia pode fazer sentido para você.
+          <p className="text-sm sm:text-base text-[#475569] font-medium">
+            Preencha os dados principais para receber uma análise inicial.
           </p>
         </div>
 
