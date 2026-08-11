@@ -14,7 +14,7 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#05070a] text-[#f7f8fa] selection:bg-[#00ff9d] selection:text-[#05070a] font-sans antialiased">
+    <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#00B86B] selection:text-white font-sans antialiased">
       {/* Fixed Navigation Header */}
       <Header />
 

@@ -47,16 +47,16 @@ export const SolutionsSection: React.FC = () => {
   ];
 
   return (
-    <section id="solucoes" className="py-20 bg-[#040D1D] relative overflow-hidden">
+    <section id="solucoes" className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#1065D8]/20 border border-[#1E88FF]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
+          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
             Ecossistema de Soluções
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Soluções <span className="text-gradient-green">Comerc Energia</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#8FA3B8]">
+          <p className="text-base sm:text-lg text-[#475569]">
             Cada perfil de consumo possui uma rota ideal. Descubra qual modelo se encaixa com a sua necessidade.
           </p>
         </div>
@@ -68,23 +68,23 @@ export const SolutionsSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="glass-card p-6 rounded-2xl border border-[#1065D8]/30 hover:border-[#20D489] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1"
+                className="glass-card p-6 rounded-2xl border border-slate-200 hover:border-[#00B86B] transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1 bg-white shadow-sm"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#071B3A] border border-[#1065D8]/30 flex items-center justify-center text-[#20D489] group-hover:scale-110 group-hover:border-[#20D489] transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#00B86B] group-hover:scale-110 group-hover:border-[#00B86B] transition-all">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#040D1D] border border-[#1065D8]/30 text-[#20D489]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-[#059669]">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#20D489] transition-colors">
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#00B86B] transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-[#8FA3B8] leading-relaxed">
+                  <p className="text-sm text-[#475569] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export const SolutionsSection: React.FC = () => {
                 <div className="pt-6">
                   <button
                     onClick={scrollToCalculator}
-                    className="text-xs font-bold text-[#20D489] group-hover:text-white flex items-center gap-1.5 cursor-pointer hover:underline"
+                    className="text-xs font-bold text-[#059669] group-hover:text-[#00B86B] flex items-center gap-1.5 cursor-pointer hover:underline"
                   >
                     <span>Simular para meu perfil</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

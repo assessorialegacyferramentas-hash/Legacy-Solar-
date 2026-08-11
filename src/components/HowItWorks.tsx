@@ -54,16 +54,16 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="como-funciona" className="py-20 bg-[#040D1D] relative overflow-hidden">
+    <section id="como-funciona" className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#1065D8]/20 border border-[#1E88FF]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
+          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
             Fluxo em 4 Etapas
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Como a <span className="text-gradient-green">simulação funciona</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#8FA3B8]">
+          <p className="text-base sm:text-lg text-[#475569]">
             Um processo simples e inteligente para analisar seu consumo e indicar a melhor rota de economia energética da Comerc.
           </p>
         </div>
@@ -75,31 +75,31 @@ export const HowItWorks: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="glass-card p-6 rounded-2xl border border-[#1065D8]/30 hover:border-[#20D489] transition-all duration-300 group flex flex-col justify-between relative"
+                className="glass-card p-6 rounded-2xl border border-slate-200 hover:border-[#00B86B] transition-all duration-300 group flex flex-col justify-between relative bg-white shadow-sm"
               >
                 {/* Step Badge & Number */}
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl font-black text-gradient-green tracking-wider">
+                    <span className="text-3xl font-black text-[#00B86B] tracking-wider">
                       {step.number}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#071B3A] border border-[#1065D8]/30 flex items-center justify-center text-[#20D489] group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#00B86B] group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#20D489] transition-colors">
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#00B86B] transition-colors">
                     {step.title}
                   </h3>
 
-                  <p className="text-xs text-[#8FA3B8] mb-4 leading-relaxed">
+                  <p className="text-xs text-[#475569] mb-4 leading-relaxed font-medium">
                     {step.description}
                   </p>
 
-                  <ul className="space-y-2 text-xs text-[#8FA3B8]">
+                  <ul className="space-y-2 text-xs text-[#475569]">
                     {step.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#20D489] mt-1 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00B86B] mt-1 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -109,7 +109,7 @@ export const HowItWorks: React.FC = () => {
                 {/* Connector arrow on desktop */}
                 {idx < 3 && (
                   <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20">
-                    <div className="w-6 h-6 rounded-full bg-[#071B3A] border border-[#1065D8]/40 flex items-center justify-center text-[#20D489]">
+                    <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-[#00B86B] shadow-sm">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>

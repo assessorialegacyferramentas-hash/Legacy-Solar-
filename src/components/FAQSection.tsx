@@ -40,16 +40,16 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#071B3A] relative overflow-hidden border-t border-b border-[#1065D8]/20">
+    <section id="faq" className="py-20 bg-[#F8FAFC] relative overflow-hidden border-t border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#00B86B]/15 border border-[#20D489]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
+          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
             Perguntas Frequentes
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Tire suas <span className="text-gradient-green">dúvidas</span>
           </h2>
-          <p className="text-base text-[#8FA3B8]">
+          <p className="text-base text-[#475569] font-medium">
             Transparência total sobre a simulação e sobre a atuação da Comerc Energia.
           </p>
         </div>
@@ -61,27 +61,27 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className={`glass-card rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen ? 'border-[#20D489] bg-[#071B3A]' : 'border-[#1065D8]/20 hover:border-[#1065D8]/50'
+                className={`glass-card rounded-2xl border transition-all duration-200 overflow-hidden bg-white ${
+                  isOpen ? 'border-[#00B86B] shadow-md' : 'border-slate-200 hover:border-slate-300'
                 }`}
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full px-6 py-5 text-left font-bold text-base sm:text-lg text-white flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full px-6 py-5 text-left font-bold text-base sm:text-lg text-[#0F172A] flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-[#20D489] shrink-0" />
+                    <HelpCircle className="w-5 h-5 text-[#00B86B] shrink-0" />
                     <span>{faq.q}</span>
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#20D489] shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#00B86B] shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 text-sm text-[#8FA3B8] leading-relaxed border-t border-[#1065D8]/10 pt-4 animate-in fade-in duration-200">
+                  <div className="px-6 pb-5 text-sm text-[#475569] leading-relaxed border-t border-slate-200 pt-4 animate-in fade-in duration-200 font-medium">
                     {faq.a}
                   </div>
                 )}

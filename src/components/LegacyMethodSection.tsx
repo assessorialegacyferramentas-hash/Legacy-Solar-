@@ -30,17 +30,17 @@ export const LegacyMethodSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#071B3A] relative overflow-hidden border-t border-b border-[#1065D8]/20">
+    <section className="py-20 bg-[#F8FAFC] relative overflow-hidden border-t border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#00B86B]/15 border border-[#20D489]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
+          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
             Metodologia Comercial Consultiva
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0F172A] tracking-tight">
             Por que a Comerc começa pela{' '}
             <span className="text-gradient-green">análise do seu perfil?</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#8FA3B8] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#475569] leading-relaxed">
             Porque cada consumidor tem uma realidade. Uma residência, um apartamento, um comércio e uma indústria não precisam da mesma solução. A simulação ajuda a entender o cenário antes de indicar o melhor caminho.
           </p>
         </div>
@@ -50,15 +50,15 @@ export const LegacyMethodSection: React.FC = () => {
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="glass-card p-6 rounded-2xl border border-[#1065D8]/30 hover:border-[#20D489] transition-all duration-300 space-y-2 group"
+              className="glass-card p-6 rounded-2xl border border-slate-200 hover:border-[#00B86B] transition-all duration-300 space-y-2 group bg-white shadow-sm"
             >
               <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#20D489] shrink-0 group-hover:scale-110 transition-transform" />
-                <h3 className="text-base font-bold text-white group-hover:text-[#20D489] transition-colors">
+                <CheckCircle2 className="w-5 h-5 text-[#00B86B] shrink-0 group-hover:scale-110 transition-transform" />
+                <h3 className="text-base font-bold text-[#0F172A] group-hover:text-[#00B86B] transition-colors">
                   {b.title}
                 </h3>
               </div>
-              <p className="text-xs text-[#8FA3B8] leading-relaxed pl-8">
+              <p className="text-xs text-[#475569] leading-relaxed pl-8 font-medium">
                 {b.desc}
               </p>
             </div>
@@ -66,12 +66,12 @@ export const LegacyMethodSection: React.FC = () => {
         </div>
 
         {/* Impact Quote Banner */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#1065D8]/20 via-[#071B3A] to-[#00B86B]/20 border border-[#20D489]/40 text-center relative overflow-hidden shadow-2xl">
-          <Sparkles className="w-8 h-8 text-[#FFB000] mx-auto mb-3 animate-pulse" />
-          <p className="text-lg sm:text-2xl font-extrabold text-white max-w-4xl mx-auto leading-snug">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-emerald-50 via-slate-50 to-emerald-50 border border-emerald-200 text-center relative overflow-hidden shadow-xl">
+          <Sparkles className="w-8 h-8 text-amber-500 mx-auto mb-3 animate-pulse" />
+          <p className="text-lg sm:text-2xl font-extrabold text-[#0F172A] max-w-4xl mx-auto leading-snug">
             “A Comerc conecta pessoas e empresas a soluções de energia mais inteligentes, sustentáveis e econômicas.”
           </p>
-          <p className="text-xs text-[#20D489] font-bold tracking-widest uppercase mt-4">
+          <p className="text-xs text-[#059669] font-bold tracking-widest uppercase mt-4">
             — COMERC ENERGIA
           </p>
         </div>
