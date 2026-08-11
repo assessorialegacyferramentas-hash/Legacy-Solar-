@@ -11,7 +11,7 @@ export function formatWhatsApp(value: string): string {
 // Mask CPF / CNPJ dynamically
 export function formatDocument(value: string, clientType: string): string {
   const digits = value.replace(/\D/g, '');
-  const isCpf = clientType === 'Pessoa Física / CPF';
+  const isCpf = clientType === 'Pessoa Física / Residência';
 
   if (isCpf) {
     const cpfDigits = digits.slice(0, 11);
@@ -58,7 +58,7 @@ export function formatBRL(amount: number): string {
   }).format(amount);
 }
 
-// Diagnostic Engine Logic
+// Diagnostic Engine Logic for Comerc Energia
 export function computeDiagnostic(data: CalculatorFormData): DiagnosticResult {
   const monthlyBillValue = parseCurrencyValue(data.monthlyBill);
   const annualExpense = monthlyBillValue * 12;
@@ -89,60 +89,64 @@ export function computeDiagnostic(data: CalculatorFormData): DiagnosticResult {
     priorityScorePercent = 98;
   }
 
-  // Solution Indication Logic according to prompt section 9
+  // Solution Indication Logic according to prompt section 9 (Comerc Energia)
   let solutionTitle = '';
   let solutionDescription = '';
 
-  if (data.clientType === 'Empresa de energia solar') {
-    solutionTitle = 'Funil de vendas para empresa solar';
-    solutionDescription = 'Sua empresa pode estruturar uma operação de aquisição com tráfego pago, calculadora energética e leads qualificados.';
-  } else if (data.hasSolarPanels === 'Sim') {
-    solutionTitle = 'Manutenção, limpeza ou diagnóstico de performance';
-    solutionDescription = 'Você já tem um sistema solar. O próximo passo pode ser avaliar se ele está performando corretamente.';
-  } else if (data.landAvailability === 'Sim' || data.landAvailability === 'Tenho área rural' || data.landAvailability === 'Tenho terreno urbano') {
-    solutionTitle = 'Análise de terreno para oportunidade solar';
-    solutionDescription = 'Seu terreno pode ter potencial para parceria, locação ou projeto energético, dependendo da viabilidade técnica.';
-  } else if (data.roofAvailability === 'Sim, telhado grande' && (data.clientType === 'Empresa / CNPJ' || data.clientType === 'Condomínio' || data.clientType === 'Produtor rural') && monthlyBillValue >= 2000) {
-    solutionTitle = 'Diagnóstico energético empresarial';
-    solutionDescription = 'Sua empresa pode ter oportunidade de reduzir custos com instalação própria, assinatura solar ou estrutura energética personalizada.';
-  } else if (data.ownership === 'Próprio' && (data.roofAvailability.startsWith('Sim')) && monthlyBillValue >= 800) {
-    solutionTitle = 'Instalação solar própria';
-    solutionDescription = 'Seu perfil pode ser adequado para avaliar um sistema próprio de energia solar.';
-  } else if (data.ownership === 'Alugado' || data.roofAvailability === 'Moro em apartamento' || data.roofAvailability === 'Não tenho telhado' || data.mainObjective === 'Economizar sem instalar placas' || data.mainObjective === 'Avaliar assinatura solar') {
-    solutionTitle = 'Assinatura solar';
-    solutionDescription = 'Você pode avaliar alternativas para economizar sem instalar placas no imóvel e sem obra.';
+  const isB2B = data.clientType === 'Empresa / CNPJ' || data.clientType === 'Comércio' || data.clientType === 'Indústria' || data.clientType === 'Condomínio';
+
+  if (isB2B && monthlyBillValue >= 5000) {
+    solutionTitle = 'Gestão de Energia / Mercado Livre';
+    solutionDescription = 'Sua operação pode exigir uma análise mais estratégica, considerando gestão de energia, perfil de consumo e possíveis alternativas no mercado de energia.';
+  } else if (isB2B && monthlyBillValue >= 2000) {
+    solutionTitle = 'Soluções de Energia para Empresas';
+    solutionDescription = 'Sua empresa pode ter potencial para uma análise energética mais completa, considerando perfil de consumo, gestão de energia e soluções para redução de custos.';
+  } else if (
+    data.ownership === 'Alugado' ||
+    data.roofAvailability === 'Moro em apartamento' ||
+    data.roofAvailability === 'Não' ||
+    data.mainObjective === 'Economizar sem instalar placas' ||
+    data.mainObjective === 'Avaliar assinatura de energia solar'
+  ) {
+    solutionTitle = 'Assinatura de Energia Solar';
+    solutionDescription = 'Seu perfil pode combinar com uma solução de assinatura de energia solar, que permite avaliar economia sem necessidade de instalação de placas no imóvel.';
+  } else if (data.mainObjective === 'Fazer diagnóstico energético') {
+    solutionTitle = 'Diagnóstico Energético Completo';
+    solutionDescription = 'Antes de escolher uma solução, o ideal é entender seu perfil de consumo e avaliar qual alternativa energética faz mais sentido.';
+  } else if (data.clientType === 'Pessoa Física / Residência') {
+    solutionTitle = 'Energia Solar por Assinatura';
+    solutionDescription = 'Você pode avaliar uma solução de energia solar por assinatura, sem obra e sem instalação no local de consumo.';
   } else {
-    solutionTitle = 'Diagnóstico energético inicial';
-    solutionDescription = 'Antes de decidir, o ideal é entender seu perfil de consumo e descobrir qual rota faz mais sentido.';
+    solutionTitle = 'Atendimento Consultivo Comerc';
+    solutionDescription = 'Seu perfil precisa de uma avaliação consultiva para entender qual solução de energia da Comerc pode gerar mais valor.';
   }
 
-  // Construct structured WhatsApp message
-  const documentTypeLabel = data.clientType === 'Pessoa Física / CPF' ? 'CPF' : 'CNPJ';
-  const docText = data.documentNumber ? `${documentTypeLabel}: ${data.documentNumber}` : `${documentTypeLabel}: Não informado`;
+  // Construct structured WhatsApp message for Comerc Energia
+  const documentTypeLabel = data.clientType === 'Pessoa Física / Residência' ? 'CPF' : 'CPF/CNPJ';
+  const docText = data.documentNumber ? `${data.documentNumber}` : 'Não informado';
 
-  const messageText = `Olá! Fiz minha simulação de economia energética no site da Legacy Renewable Energy e gostaria de receber uma análise completa.
+  const messageText = `Olá! Fiz uma simulação de economia energética no site da Comerc Energia e gostaria de continuar minha análise.
 
 Nome: ${data.fullName}
 WhatsApp: ${data.whatsapp}
 E-mail: ${data.email}
 Tipo de cliente: ${data.clientType}
-${docText}
+${documentTypeLabel}: ${docText}
 Cidade/UF: ${data.city} - ${data.state}
-Conta média de energia: R$ ${formatBRL(monthlyBillValue).replace('R$', '').trim()}
+Conta média de energia: ${data.monthlyBill}
 Despesa anual estimada: R$ ${formatBRL(annualExpense).replace('R$', '').trim()}
 Tipo de imóvel/operação: ${data.propertyType}
 Imóvel: ${data.ownership}
 Telhado disponível: ${data.roofAvailability}
-Terreno disponível: ${data.landAvailability}
-Já possui placas solares: ${data.hasSolarPanels}
+Já usa ou pesquisou energia solar: ${data.hasSolarPanels}
 Principal objetivo: ${data.mainObjective}
 Prazo de interesse: ${data.timeframe}
 Solução indicada: ${solutionTitle}
 
-Quero continuar a análise com a equipe da Legacy.`;
+Quero receber uma análise consultiva para entender qual solução de energia faz mais sentido para meu perfil.`;
 
-  const whatsappPhone = '5584996177978';
-  const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(messageText)}`;
+  const COMERC_WHATSAPP_NUMBER = '5584996177978';
+  const whatsappUrl = `https://wa.me/${COMERC_WHATSAPP_NUMBER}?text=${encodeURIComponent(messageText)}`;
 
   return {
     leadName: data.fullName,

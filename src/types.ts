@@ -1,9 +1,11 @@
 export type ClientType =
-  | 'Pessoa Física / CPF'
+  | 'Pessoa Física / Residência'
   | 'Empresa / CNPJ'
   | 'Condomínio'
   | 'Produtor rural'
-  | 'Empresa de energia solar';
+  | 'Comércio'
+  | 'Indústria'
+  | 'Outro';
 
 export type PropertyType =
   | 'Casa'
@@ -19,7 +21,6 @@ export type PropertyType =
   | 'Igreja'
   | 'Condomínio'
   | 'Fazenda/Rural'
-  | 'Terreno'
   | 'Outro';
 
 export type PropertyOwnership =
@@ -29,10 +30,8 @@ export type PropertyOwnership =
   | 'Não sei / preciso avaliar';
 
 export type RoofAvailability =
-  | 'Sim, telhado pequeno'
-  | 'Sim, telhado médio'
-  | 'Sim, telhado grande'
-  | 'Não tenho telhado'
+  | 'Sim'
+  | 'Não'
   | 'Moro em apartamento'
   | 'Não sei informar';
 
@@ -44,26 +43,25 @@ export type LandAvailability =
   | 'Tenho terreno urbano';
 
 export type SolarStatus =
-  | 'Sim'
-  | 'Não'
-  | 'Já tive orçamento'
-  | 'Estou pesquisando';
+  | 'Já uso'
+  | 'Já fiz orçamento'
+  | 'Estou pesquisando'
+  | 'Nunca pesquisei';
 
 export type MainObjective =
-  | 'Reduzir conta de energia'
-  | 'Instalar sistema próprio'
+  | 'Reduzir minha conta de energia'
   | 'Economizar sem instalar placas'
-  | 'Avaliar assinatura solar'
+  | 'Avaliar assinatura de energia solar'
+  | 'Entender soluções para minha empresa'
+  | 'Avaliar mercado livre de energia'
   | 'Fazer diagnóstico energético'
-  | 'Gerar renda com terreno ou telhado'
-  | 'Fazer manutenção em sistema existente'
-  | 'Captar leads para minha empresa solar';
+  | 'Outro';
 
 export type Timeframe =
   | 'O quanto antes'
   | 'Nos próximos 30 dias'
   | 'Em até 3 meses'
-  | 'Ainda estou pesquisando';
+  | 'Só pesquisando';
 
 export type PreferredContactTime =
   | 'Manhã'
@@ -79,7 +77,7 @@ export interface CalculatorFormData {
   documentNumber: string; // CPF or CNPJ
   city: string;
   state: string;
-  monthlyBill: string; // formatted currency string or raw
+  monthlyBill: string;
   propertyType: PropertyType;
   ownership: PropertyOwnership;
   roofAvailability: RoofAvailability;
@@ -93,13 +91,13 @@ export interface CalculatorFormData {
 export interface DiagnosticResult {
   leadName: string;
   clientType: ClientType;
-  monthlyBillValue: number; // numeric
-  annualExpense: number; // numeric = monthlyBillValue * 12
-  savingsConservative: number; // 10%
-  savingsModerate: number; // 15%
-  savingsOptimistic: number; // 20%
+  monthlyBillValue: number;
+  annualExpense: number;
+  savingsConservative: number;
+  savingsModerate: number;
+  savingsOptimistic: number;
   leadPriorityClass: 'Perfil inicial' | 'Potencial moderado' | 'Bom potencial' | 'Alto potencial' | 'Prioridade comercial';
-  priorityScorePercent: number; // 0 to 100
+  priorityScorePercent: number;
   solutionTitle: string;
   solutionDescription: string;
   whatsappMessage: string;

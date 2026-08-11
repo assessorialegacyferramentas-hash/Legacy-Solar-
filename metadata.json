@@ -1,6 +1,6 @@
 {
-  "name": "Legacy Renewable Energy",
-  "description": "Landing page com calculadora de economia energética e diagnóstico automático para Legacy Renewable Energy.",
+  "name": "Comerc Energia",
+  "description": "Landing page com calculadora de economia energética e diagnóstico automático da Comerc Energia.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

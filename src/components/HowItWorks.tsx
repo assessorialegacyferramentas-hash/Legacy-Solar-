@@ -5,64 +5,66 @@ export const HowItWorks: React.FC = () => {
   const steps = [
     {
       number: '01',
-      title: 'Você informa seus dados',
+      title: 'Informe seus dados',
       icon: FormInput,
+      description: 'Você preenche informações básicas sobre consumo, cidade e perfil de consumo.',
       items: [
         'Tipo de cliente (PF ou CNPJ)',
         'Valor médio da conta de energia',
-        'Cidade e Estado de atuação',
-        'Tipo de imóvel/operação comercial',
-        'Perfil geral de consumo',
+        'Cidade e Estado do imóvel',
+        'Perfil do imóvel ou operação',
       ],
     },
     {
       number: '02',
-      title: 'O sistema analisa seu perfil',
+      title: 'A calculadora analisa seu cenário',
       icon: Cpu,
+      description: 'O sistema cruza tipo de cliente, valor de conta, imóvel e objetivo.',
       items: [
-        'Documento CPF ou CNPJ',
-        'Status do imóvel (próprio ou alugado)',
-        'Telhado, terreno ou estrutura disponível',
-        'Interesse em instalar ou economizar sem obra',
+        'Avaliação de potencial financeiro',
+        'Status do imóvel e telhado',
+        'Preferência por obras ou assinatura',
+        'Mapeamento da rota mais vantajosa',
       ],
     },
     {
       number: '03',
-      title: 'A calculadora indica uma rota',
+      title: 'Receba uma solução indicada',
       icon: Route,
+      description: 'A página mostra uma rota inicial compatível com seu perfil de consumo.',
       items: [
-        'Instalação própria de energia solar',
-        'Assinatura solar sem investimento inicial',
-        'Diagnóstico energético corporativo',
-        'Terreno / telhado para usina ou funil solar',
+        'Assinatura de energia solar',
+        'Solução energética empresarial',
+        'Gestão ou Mercado Livre de Energia',
+        'Diagnóstico consultivo de consumo',
       ],
     },
     {
       number: '04',
-      title: 'Você fala com a Legacy',
+      title: 'Continue pelo WhatsApp',
       icon: MessageSquareText,
+      description: 'Seus dados já chegam organizados para o atendimento consultivo da Comerc.',
       items: [
-        'O WhatsApp abre com seus dados preenchidos',
-        'Atendimento consultivo com contexto',
-        'Análise comercial rápida e objetiva',
-        'Direcionamento sem promessas falsas',
+        'Mensagem automática estruturada',
+        'Atendimento ágil com especialistas',
+        'Análise sem compromisso inicial',
+        'Acompanhamento de viabilidade',
       ],
     },
   ];
 
   return (
-    <section id="como-funciona" className="py-20 bg-[#05070a] relative overflow-hidden">
+    <section id="como-funciona" className="py-20 bg-[#040D1D] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#00d084]/10 border border-[#00d084]/30 text-xs font-bold text-[#00ff9d] tracking-wider uppercase">
+          <span className="px-3.5 py-1.5 rounded-full bg-[#1065D8]/20 border border-[#1E88FF]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
             Fluxo em 4 Etapas
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Como a calculadora transforma curiosidade em{' '}
-            <span className="text-gradient-green">diagnóstico comercial</span>
+            Como a <span className="text-gradient-green">simulação funciona</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#b8c0cc]">
-            Um processo inteligente para qualificar sua demanda e apontar a solução ideal antes de qualquer abordagem comercial.
+          <p className="text-base sm:text-lg text-[#8FA3B8]">
+            Um processo simples e inteligente para analisar seu consumo e indicar a melhor rota de economia energética da Comerc.
           </p>
         </div>
 
@@ -73,7 +75,7 @@ export const HowItWorks: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="glass-card p-6 rounded-2xl border border-[#00d084]/20 hover:border-[#00ff9d] transition-all duration-300 group flex flex-col justify-between relative"
+                className="glass-card p-6 rounded-2xl border border-[#1065D8]/30 hover:border-[#20D489] transition-all duration-300 group flex flex-col justify-between relative"
               >
                 {/* Step Badge & Number */}
                 <div>
@@ -81,19 +83,23 @@ export const HowItWorks: React.FC = () => {
                     <span className="text-3xl font-black text-gradient-green tracking-wider">
                       {step.number}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-[#0b0f14] border border-[#00d084]/30 flex items-center justify-center text-[#00ff9d] group-hover:scale-110 transition-transform">
+                    <div className="w-10 h-10 rounded-xl bg-[#071B3A] border border-[#1065D8]/30 flex items-center justify-center text-[#20D489] group-hover:scale-110 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#00ff9d] transition-colors">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#20D489] transition-colors">
                     {step.title}
                   </h3>
 
-                  <ul className="space-y-2 text-xs text-[#b8c0cc]">
+                  <p className="text-xs text-[#8FA3B8] mb-4 leading-relaxed">
+                    {step.description}
+                  </p>
+
+                  <ul className="space-y-2 text-xs text-[#8FA3B8]">
                     {step.items.map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00ff9d] mt-1 shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#20D489] mt-1 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -103,7 +109,7 @@ export const HowItWorks: React.FC = () => {
                 {/* Connector arrow on desktop */}
                 {idx < 3 && (
                   <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20">
-                    <div className="w-6 h-6 rounded-full bg-[#0b0f14] border border-[#00d084]/40 flex items-center justify-center text-[#00ff9d]">
+                    <div className="w-6 h-6 rounded-full bg-[#071B3A] border border-[#1065D8]/40 flex items-center justify-center text-[#20D489]">
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>

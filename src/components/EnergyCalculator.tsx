@@ -5,7 +5,6 @@ import {
   PropertyType,
   PropertyOwnership,
   RoofAvailability,
-  LandAvailability,
   SolarStatus,
   MainObjective,
   Timeframe,
@@ -19,7 +18,7 @@ import {
   computeDiagnostic,
 } from '../utils/calculator';
 import { ResultPanel } from './ResultPanel';
-import { Zap, ShieldCheck, CheckCircle2, User, Phone, Mail, Building2, MapPin, DollarSign, Home, CheckSquare, Clock, Sparkles } from 'lucide-react';
+import { Zap, ShieldCheck, User, Building2, DollarSign, Home, CheckSquare, Sparkles } from 'lucide-react';
 
 export const EnergyCalculator: React.FC = () => {
   const [formData, setFormData] = useState<CalculatorFormData>({
@@ -29,14 +28,14 @@ export const EnergyCalculator: React.FC = () => {
     clientType: 'Empresa / CNPJ',
     documentNumber: '',
     city: '',
-    state: 'RN',
+    state: 'SP',
     monthlyBill: 'R$ 2.500,00',
     propertyType: 'Comércio',
     ownership: 'Próprio',
-    roofAvailability: 'Sim, telhado médio',
+    roofAvailability: 'Sim',
     landAvailability: 'Não',
-    hasSolarPanels: 'Não',
-    mainObjective: 'Reduzir conta de energia',
+    hasSolarPanels: 'Estou pesquisando',
+    mainObjective: 'Reduzir minha conta de energia',
     timeframe: 'O quanto antes',
     preferredContactTime: 'Qualquer horário',
   });
@@ -60,7 +59,6 @@ export const EnergyCalculator: React.FC = () => {
       'propertyType',
       'ownership',
       'roofAvailability',
-      'landAvailability',
       'hasSolarPanels',
       'mainObjective',
       'timeframe',
@@ -120,11 +118,11 @@ export const EnergyCalculator: React.FC = () => {
     setLoadingStepText('Validando dados e localização...');
 
     setTimeout(() => {
-      setLoadingStepText('Calculando impacto financeiro anual...');
+      setLoadingStepText('Calculando potencial de economia...');
     }, 600);
 
     setTimeout(() => {
-      setLoadingStepText('Mapeando soluções energéticas Legacy...');
+      setLoadingStepText('Mapeando soluções energéticas Comerc...');
     }, 1200);
 
     setTimeout(() => {
@@ -143,40 +141,40 @@ export const EnergyCalculator: React.FC = () => {
   const progress = calculateProgress();
 
   return (
-    <section id="calculadora" className="py-20 bg-[#0b0f14] relative overflow-hidden border-t border-b border-[#00d084]/20">
+    <section id="calculadora" className="py-20 bg-[#071B3A] relative overflow-hidden border-t border-b border-[#1065D8]/20">
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-radial-green opacity-30 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#00d084]/10 border border-[#00d084]/30 text-xs font-bold text-[#00ff9d] tracking-wider uppercase">
-            Simulação Interativa Completa
+          <span className="px-3.5 py-1.5 rounded-full bg-[#00B86B]/15 border border-[#20D489]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
+            Calculadora de Economia
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Calcule seu <span className="text-gradient-green">potencial de economia</span>
+            Simule seu <span className="text-gradient-green">potencial de economia</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#b8c0cc]">
-            Preencha os dados abaixo para receber um diagnóstico inicial e descobrir qual solução pode fazer mais sentido para o seu perfil.
+          <p className="text-base sm:text-lg text-[#8FA3B8]">
+            Responda algumas perguntas e receba um diagnóstico inicial para entender qual solução de energia pode fazer sentido para você.
           </p>
         </div>
 
         {/* Form Container Card */}
-        <div className="glass-card rounded-3xl p-6 sm:p-10 border border-[#00ff9d]/30 shadow-2xl relative">
+        <div className="glass-card rounded-3xl p-6 sm:p-10 border border-[#1E88FF]/30 shadow-2xl relative">
           {/* Progress Header */}
-          <div className="mb-8 p-4 rounded-2xl bg-[#05070a] border border-[#00d084]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mb-8 p-4 rounded-2xl bg-[#040D1D] border border-[#1065D8]/20 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#00d084]/10 border border-[#00ff9d]/30 flex items-center justify-center text-[#00ff9d]">
+              <div className="w-10 h-10 rounded-xl bg-[#00B86B]/15 border border-[#20D489]/30 flex items-center justify-center text-[#20D489]">
                 <Zap className="w-5 h-5 fill-current" />
               </div>
               <div>
-                <p className="text-xs text-[#b8c0cc] uppercase font-bold">Progresso do Diagnóstico</p>
+                <p className="text-xs text-[#8FA3B8] uppercase font-bold">Progresso do Diagnóstico</p>
                 <p className="text-sm font-extrabold text-white">{progress}% Preenchido</p>
               </div>
             </div>
 
-            <div className="w-full sm:w-64 bg-[#1a1f27] h-3 rounded-full overflow-hidden border border-[#00d084]/20">
+            <div className="w-full sm:w-64 bg-[#071B3A] h-3 rounded-full overflow-hidden border border-[#1065D8]/20">
               <div
-                className="bg-gradient-to-r from-[#00d084] to-[#00ff9d] h-full transition-all duration-300"
+                className="bg-gradient-to-r from-[#1065D8] via-[#00B86B] to-[#20D489] h-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -184,7 +182,7 @@ export const EnergyCalculator: React.FC = () => {
 
           {/* Validation Error Banner */}
           {validationError && (
-            <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-medium flex items-center gap-3 animate-shake">
+            <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-medium flex items-center gap-3">
               <ShieldCheck className="w-5 h-5 shrink-0" />
               <span>{validationError}</span>
             </div>
@@ -194,126 +192,122 @@ export const EnergyCalculator: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* SECTION 1: Dados Pessoais & Contato */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#00ff9d] mb-4 flex items-center gap-2 border-b border-[#00d084]/15 pb-2">
-                <User className="w-4 h-4" /> 1. Dados de Contato e Identificação
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#20D489] mb-4 flex items-center gap-2 border-b border-[#1065D8]/20 pb-2">
+                <User className="w-4 h-4" /> 1. Dados de Contato
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* 1. Nome Completo */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                     Nome Completo *
                   </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={formData.fullName}
-                      onChange={(e) => handleInputChange('fullName', e.target.value)}
-                      placeholder="Seu nome ou nome do responsável"
-                      className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d] text-white text-sm outline-none transition-all placeholder:text-[#b8c0cc]/40"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    value={formData.fullName}
+                    onChange={(e) => handleInputChange('fullName', e.target.value)}
+                    placeholder="Seu nome completo"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] focus:ring-1 focus:ring-[#20D489] text-white text-sm outline-none transition-all placeholder:text-[#8FA3B8]/40"
+                  />
                 </div>
 
                 {/* 2. WhatsApp */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                     WhatsApp *
                   </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={formData.whatsapp}
-                      onChange={(e) => handleInputChange('whatsapp', e.target.value)}
-                      placeholder="(84) 99617-7978"
-                      className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d] text-white text-sm outline-none transition-all placeholder:text-[#b8c0cc]/40"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    value={formData.whatsapp}
+                    onChange={(e) => handleInputChange('whatsapp', e.target.value)}
+                    placeholder="(11) 99999-9999"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] focus:ring-1 focus:ring-[#20D489] text-white text-sm outline-none transition-all placeholder:text-[#8FA3B8]/40"
+                  />
                 </div>
 
                 {/* 3. E-mail */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                     E-mail *
                   </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      placeholder="seu.email@empresa.com"
-                      className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d] text-white text-sm outline-none transition-all placeholder:text-[#b8c0cc]/40"
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    placeholder="seu.email@exemplo.com"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] focus:ring-1 focus:ring-[#20D489] text-white text-sm outline-none transition-all placeholder:text-[#8FA3B8]/40"
+                  />
                 </div>
               </div>
             </div>
 
             {/* SECTION 2: Perfil do Cliente & Localização */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#00ff9d] mb-4 flex items-center gap-2 border-b border-[#00d084]/15 pb-2">
-                <Building2 className="w-4 h-4" /> 2. Perfil de Cliente & Localização
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#20D489] mb-4 flex items-center gap-2 border-b border-[#1065D8]/20 pb-2">
+                <Building2 className="w-4 h-4" /> 2. Tipo de Cliente & Localização
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* 4. Tipo de cliente */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                     Tipo de Cliente *
                   </label>
                   <select
                     value={formData.clientType}
                     onChange={(e) => handleClientTypeChange(e.target.value as ClientType)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d] text-white text-sm outline-none transition-all cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] focus:ring-1 focus:ring-[#20D489] text-white text-sm outline-none transition-all cursor-pointer"
                   >
+                    <option value="Pessoa Física / Residência">Pessoa Física / Residência</option>
                     <option value="Empresa / CNPJ">Empresa / CNPJ</option>
-                    <option value="Pessoa Física / CPF">Pessoa Física / CPF</option>
                     <option value="Condomínio">Condomínio</option>
                     <option value="Produtor rural">Produtor rural</option>
-                    <option value="Empresa de energia solar">Empresa de energia solar</option>
+                    <option value="Comércio">Comércio</option>
+                    <option value="Indústria">Indústria</option>
+                    <option value="Outro">Outro</option>
                   </select>
                 </div>
 
                 {/* 5. CPF ou CNPJ */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    {formData.clientType === 'Pessoa Física / CPF' ? 'CPF' : 'CNPJ'}
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    {formData.clientType === 'Pessoa Física / Residência' ? 'CPF' : 'CNPJ'}
                   </label>
                   <input
                     type="text"
                     value={formData.documentNumber}
                     onChange={(e) => handleInputChange('documentNumber', e.target.value)}
                     placeholder={
-                      formData.clientType === 'Pessoa Física / CPF'
+                      formData.clientType === 'Pessoa Física / Residência'
                         ? '000.000.000-00'
                         : '00.000.000/0000-00'
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d] text-white text-sm outline-none transition-all placeholder:text-[#b8c0cc]/40"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] focus:ring-1 focus:ring-[#20D489] text-white text-sm outline-none transition-all placeholder:text-[#8FA3B8]/40"
                   />
                 </div>
 
                 {/* 6 & 7. Cidade e Estado */}
                 <div className="grid grid-cols-3 gap-2">
                   <div className="col-span-2">
-                    <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                    <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                       Cidade *
                     </label>
                     <input
                       type="text"
                       value={formData.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
-                      placeholder="Ex.: Natal"
-                      className="w-full px-3 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none"
+                      placeholder="Sua cidade"
+                      className="w-full px-3 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                    <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                       UF *
                     </label>
                     <select
                       value={formData.state}
                       onChange={(e) => handleInputChange('state', e.target.value)}
-                      className="w-full px-2 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                      className="w-full px-2 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                     >
                       {BRAZILIAN_STATES.map((st) => (
                         <option key={st} value={st}>
@@ -326,40 +320,40 @@ export const EnergyCalculator: React.FC = () => {
               </div>
             </div>
 
-            {/* SECTION 3: Consumo & Estrutura do Imóvel */}
+            {/* SECTION 3: Consumo & Tipo de Imóvel */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#00ff9d] mb-4 flex items-center gap-2 border-b border-[#00d084]/15 pb-2">
-                <DollarSign className="w-4 h-4" /> 3. Consumo Mensal & Características Físicas
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#20D489] mb-4 flex items-center gap-2 border-b border-[#1065D8]/20 pb-2">
+                <DollarSign className="w-4 h-4" /> 3. Consumo Mensal & Imóvel
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* 8. Valor médio da conta de energia */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Valor Mando Média da Conta *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    Valor Mando Média da Conta de Energia *
                   </label>
                   <input
                     type="text"
                     value={formData.monthlyBill}
                     onChange={(e) => handleInputChange('monthlyBill', e.target.value)}
                     placeholder="Ex.: R$ 2.500,00"
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00ff9d]/40 focus:border-[#00ff9d] focus:ring-1 focus:ring-[#00ff9d] text-[#00ff9d] font-bold text-base outline-none transition-all placeholder:text-[#b8c0cc]/40"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#20D489]/50 focus:border-[#20D489] focus:ring-1 focus:ring-[#20D489] text-[#20D489] font-bold text-base outline-none transition-all placeholder:text-[#8FA3B8]/40"
                   />
                 </div>
 
                 {/* 9. Tipo de imóvel/operação */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
                     Tipo de Imóvel/Operação *
                   </label>
                   <select
                     value={formData.propertyType}
                     onChange={(e) => handleInputChange('propertyType', e.target.value as PropertyType)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
-                    <option value="Comércio">Comércio</option>
                     <option value="Casa">Casa</option>
                     <option value="Apartamento">Apartamento</option>
+                    <option value="Comércio">Comércio</option>
                     <option value="Clínica">Clínica</option>
                     <option value="Restaurante">Restaurante</option>
                     <option value="Mercado">Mercado</option>
@@ -370,20 +364,19 @@ export const EnergyCalculator: React.FC = () => {
                     <option value="Igreja">Igreja</option>
                     <option value="Condomínio">Condomínio</option>
                     <option value="Fazenda/Rural">Fazenda/Rural</option>
-                    <option value="Terreno">Terreno</option>
                     <option value="Outro">Outro</option>
                   </select>
                 </div>
 
                 {/* 10. Imóvel próprio ou alugado */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Status do Imóvel *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    O imóvel é próprio ou alugado? *
                   </label>
                   <select
                     value={formData.ownership}
                     onChange={(e) => handleInputChange('ownership', e.target.value as PropertyOwnership)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
                     <option value="Próprio">Próprio</option>
                     <option value="Alugado">Alugado</option>
@@ -394,123 +387,102 @@ export const EnergyCalculator: React.FC = () => {
               </div>
             </div>
 
-            {/* SECTION 4: Estrutura Física & Placas Solares */}
+            {/* SECTION 4: Estrutura & Uso prévio de Energia Solar */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#00ff9d] mb-4 flex items-center gap-2 border-b border-[#00d084]/15 pb-2">
-                <Home className="w-4 h-4" /> 4. Telhado, Terreno & Situação Solar
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#20D489] mb-4 flex items-center gap-2 border-b border-[#1065D8]/20 pb-2">
+                <Home className="w-4 h-4" /> 4. Estrutura Física & Conhecimento Solar
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* 11. Telhado disponível */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Telhado Disponível? *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    Você possui telhado disponível? *
                   </label>
                   <select
                     value={formData.roofAvailability}
                     onChange={(e) => handleInputChange('roofAvailability', e.target.value as RoofAvailability)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
-                    <option value="Sim, telhado médio">Sim, telhado médio</option>
-                    <option value="Sim, telhado pequeno">Sim, telhado pequeno</option>
-                    <option value="Sim, telhado grande">Sim, telhado grande</option>
-                    <option value="Não tenho telhado">Não tenho telhado</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Não">Não</option>
                     <option value="Moro em apartamento">Moro em apartamento</option>
                     <option value="Não sei informar">Não sei informar</option>
                   </select>
                 </div>
 
-                {/* 12. Terreno disponível */}
+                {/* 12. Já usa ou já pesquisou energia solar? */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Terreno Disponível? *
-                  </label>
-                  <select
-                    value={formData.landAvailability}
-                    onChange={(e) => handleInputChange('landAvailability', e.target.value as LandAvailability)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
-                  >
-                    <option value="Não">Não</option>
-                    <option value="Sim">Sim</option>
-                    <option value="Talvez">Talvez</option>
-                    <option value="Tenho área rural">Tenho área rural</option>
-                    <option value="Tenho terreno urbano">Tenho terreno urbano</option>
-                  </select>
-                </div>
-
-                {/* 13. Já possui placas solares? */}
-                <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Já possui placas solares? *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    Você já usa ou já pesquisou energia solar? *
                   </label>
                   <select
                     value={formData.hasSolarPanels}
                     onChange={(e) => handleInputChange('hasSolarPanels', e.target.value as SolarStatus)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
-                    <option value="Não">Não</option>
-                    <option value="Sim">Sim</option>
-                    <option value="Já tive orçamento">Já tive orçamento</option>
                     <option value="Estou pesquisando">Estou pesquisando</option>
+                    <option value="Já uso">Já uso</option>
+                    <option value="Já fiz orçamento">Já fiz orçamento</option>
+                    <option value="Nunca pesquisei">Nunca pesquisei</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            {/* SECTION 5: Objetivos & Prazos */}
+            {/* SECTION 5: Objetivo, Prazo & Horário */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#00ff9d] mb-4 flex items-center gap-2 border-b border-[#00d084]/15 pb-2">
-                <CheckSquare className="w-4 h-4" /> 5. Objetivo & Preferências de Atendimento
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#20D489] mb-4 flex items-center gap-2 border-b border-[#1065D8]/20 pb-2">
+                <CheckSquare className="w-4 h-4" /> 5. Objetivo & Preferências
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {/* 14. Principal Objetivo */}
+                {/* 13. Qual seu principal objetivo? */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Principal Objetivo *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    Qual seu principal objetivo? *
                   </label>
                   <select
                     value={formData.mainObjective}
                     onChange={(e) => handleInputChange('mainObjective', e.target.value as MainObjective)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
-                    <option value="Reduzir conta de energia">Reduzir conta de energia</option>
-                    <option value="Instalar sistema próprio">Instalar sistema próprio</option>
+                    <option value="Reduzir minha conta de energia">Reduzir minha conta de energia</option>
                     <option value="Economizar sem instalar placas">Economizar sem instalar placas</option>
-                    <option value="Avaliar assinatura solar">Avaliar assinatura solar</option>
+                    <option value="Avaliar assinatura de energia solar">Avaliar assinatura de energia solar</option>
+                    <option value="Entender soluções para minha empresa">Entender soluções para minha empresa</option>
+                    <option value="Avaliar mercado livre de energia">Avaliar mercado livre de energia</option>
                     <option value="Fazer diagnóstico energético">Fazer diagnóstico energético</option>
-                    <option value="Gerar renda com terreno ou telhado">Gerar renda com terreno ou telhado</option>
-                    <option value="Fazer manutenção em sistema existente">Fazer manutenção em sistema existente</option>
-                    <option value="Captar leads para minha empresa solar">Captar leads para minha empresa solar</option>
+                    <option value="Outro">Outro</option>
                   </select>
                 </div>
 
-                {/* 15. Prazo de interesse */}
+                {/* 14. Prazo de interesse */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Prazo de Interesse *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    Prazo de interesse *
                   </label>
                   <select
                     value={formData.timeframe}
                     onChange={(e) => handleInputChange('timeframe', e.target.value as Timeframe)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
                     <option value="O quanto antes">O quanto antes</option>
                     <option value="Nos próximos 30 dias">Nos próximos 30 dias</option>
                     <option value="Em até 3 meses">Em até 3 meses</option>
-                    <option value="Ainda estou pesquisando">Ainda estou pesquisando</option>
+                    <option value="Só pesquisando">Só pesquisando</option>
                   </select>
                 </div>
 
-                {/* 16. Melhor horário para contato */}
+                {/* 15. Melhor horário para contato */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#b8c0cc] mb-1.5">
-                    Horário para Contato *
+                  <label className="block text-xs font-semibold text-[#8FA3B8] mb-1.5">
+                    Melhor horário para contato *
                   </label>
                   <select
                     value={formData.preferredContactTime}
                     onChange={(e) => handleInputChange('preferredContactTime', e.target.value as PreferredContactTime)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#05070a] border border-[#00d084]/20 focus:border-[#00ff9d] text-white text-sm outline-none cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-[#040D1D] border border-[#1065D8]/30 focus:border-[#20D489] text-white text-sm outline-none cursor-pointer"
                   >
                     <option value="Qualquer horário">Qualquer horário</option>
                     <option value="Manhã">Manhã</option>
@@ -528,26 +500,26 @@ export const EnergyCalculator: React.FC = () => {
                 disabled={isLoading}
                 className="w-full sm:w-auto px-10 py-4 rounded-xl neon-glow-btn text-base sm:text-lg font-black inline-flex items-center justify-center gap-3 cursor-pointer shadow-xl disabled:opacity-50"
               >
-                <Sparkles className="w-5 h-5 fill-current text-[#05070a]" />
+                <Sparkles className="w-5 h-5 fill-current text-[#040D1D]" />
                 <span>Ver meu diagnóstico energético</span>
               </button>
-              <p className="text-xs text-[#b8c0cc]/60 mt-3">
-                Ao clicar, geramos uma estimativa inicial técnica sem compromisso comercial.
+              <p className="text-xs text-[#8FA3B8]/70 mt-3">
+                Simulação inicial gratuita • Soluções para residências e empresas • Atendimento consultivo
               </p>
             </div>
           </form>
 
           {/* Loading Modal / Overlay */}
           {isLoading && (
-            <div className="absolute inset-0 bg-[#05070a]/95 backdrop-blur-xl rounded-3xl flex flex-col items-center justify-center p-6 z-30 animate-in fade-in duration-300">
+            <div className="absolute inset-0 bg-[#040D1D]/95 backdrop-blur-xl rounded-3xl flex flex-col items-center justify-center p-6 z-30 animate-in fade-in duration-300">
               <div className="relative w-20 h-20 mb-6">
-                <div className="w-full h-full rounded-full border-4 border-[#00d084]/20 border-t-[#00ff9d] animate-spin" />
-                <Zap className="w-8 h-8 text-[#00ff9d] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+                <div className="w-full h-full rounded-full border-4 border-[#1065D8]/30 border-t-[#20D489] animate-spin" />
+                <Zap className="w-8 h-8 text-[#20D489] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2 text-center">
-                Gerando Diagnóstico Legacy
+                Gerando Diagnóstico Comercial Comerc
               </h3>
-              <p className="text-sm text-[#00ff9d] font-semibold animate-pulse text-center">
+              <p className="text-sm text-[#20D489] font-semibold animate-pulse text-center">
                 {loadingStepText}
               </p>
             </div>

@@ -6,32 +6,32 @@ export const FAQSection: React.FC = () => {
 
   const faqs = [
     {
-      q: 'A calculadora garante economia?',
-      a: 'Não. A calculadora entrega uma estimativa inicial. A economia real depende da análise da conta de energia, região, consumo, solução contratada e viabilidade técnica.',
+      q: 'A simulação garante economia?',
+      a: 'Não. A simulação é uma estimativa inicial. A economia real depende da análise do consumo, região, perfil do cliente e solução contratada.',
     },
     {
       q: 'Preciso instalar placas?',
-      a: 'Nem sempre. Dependendo do seu perfil, pode fazer mais sentido avaliar assinatura solar, diagnóstico energético ou outra solução sem obras.',
+      a: 'Nem sempre. Dependendo do seu perfil, pode fazer sentido avaliar soluções como energia solar por assinatura, sem instalação no imóvel.',
+    },
+    {
+      q: 'Serve para residência?',
+      a: 'Sim. A página considera perfis residenciais, apartamentos e pessoas físicas.',
     },
     {
       q: 'Serve para empresas?',
-      a: 'Sim. A página foi pensada principalmente para empresas, comércios, indústrias, hotéis, mercados, clínicas, condomínios e grandes consumidores de energia.',
+      a: 'Sim. Empresas, comércios, condomínios e grandes consumidores podem receber uma indicação inicial para análise energética.',
     },
     {
-      q: 'Serve para pessoa física?',
-      a: 'Sim. A calculadora também pode direcionar pessoas físicas para instalação própria ou assinatura solar.',
+      q: 'O que acontece depois que envio meus dados?',
+      a: 'Você será direcionado para o WhatsApp com uma mensagem pronta contendo os dados da simulação para continuar o atendimento consultivo da Comerc.',
     },
     {
-      q: 'O atendimento é gratuito?',
-      a: 'O diagnóstico inicial pelo site é gratuito. Caso seja necessário um projeto, proposta ou análise mais profunda, a equipe informará as condições com total transparência.',
+      q: 'A Comerc atende todo o Brasil?',
+      a: 'A disponibilidade pode variar conforme a região e solução indicada. A equipe confirmará as opções aplicáveis ao seu perfil.',
     },
     {
-      q: 'Quem vai receber meus dados?',
-      a: 'A equipe da Legacy receberá os dados enviados pelo WhatsApp para continuar o atendimento consultivo.',
-    },
-    {
-      q: 'Tenho uma empresa solar. Isso serve para mim?',
-      a: 'Sim. A Legacy também estrutura funis de captação para empresas solares que desejam gerar leads qualificados usando esta mesma tecnologia.',
+      q: 'Meus dados são usados para quê?',
+      a: 'Os dados são usados exclusivamente para entender seu perfil de consumo e conduzir o atendimento consultivo sobre soluções energéticas.',
     },
   ];
 
@@ -40,17 +40,17 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#0b0f14] relative overflow-hidden border-t border-b border-[#00d084]/20">
+    <section id="faq" className="py-20 bg-[#071B3A] relative overflow-hidden border-t border-b border-[#1065D8]/20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-[#00d084]/10 border border-[#00d084]/30 text-xs font-bold text-[#00ff9d] tracking-wider uppercase">
+          <span className="px-3.5 py-1.5 rounded-full bg-[#00B86B]/15 border border-[#20D489]/30 text-xs font-bold text-[#20D489] tracking-wider uppercase">
             Perguntas Frequentes
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             Tire suas <span className="text-gradient-green">dúvidas</span>
           </h2>
-          <p className="text-base text-[#b8c0cc]">
-            Transparência total sobre o diagnóstico energético e sobre a atuação da Legacy.
+          <p className="text-base text-[#8FA3B8]">
+            Transparência total sobre a simulação e sobre a atuação da Comerc Energia.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export const FAQSection: React.FC = () => {
               <div
                 key={idx}
                 className={`glass-card rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen ? 'border-[#00ff9d] bg-[#0b0f14]' : 'border-[#00d084]/20 hover:border-[#00d084]/50'
+                  isOpen ? 'border-[#20D489] bg-[#071B3A]' : 'border-[#1065D8]/20 hover:border-[#1065D8]/50'
                 }`}
               >
                 <button
@@ -70,18 +70,18 @@ export const FAQSection: React.FC = () => {
                   className="w-full px-6 py-5 text-left font-bold text-base sm:text-lg text-white flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                 >
                   <span className="flex items-center gap-3">
-                    <HelpCircle className="w-5 h-5 text-[#00ff9d] shrink-0" />
+                    <HelpCircle className="w-5 h-5 text-[#20D489] shrink-0" />
                     <span>{faq.q}</span>
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#00ff9d] shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#20D489] shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 text-sm text-[#b8c0cc] leading-relaxed border-t border-[#00d084]/10 pt-4 animate-in fade-in duration-200">
+                  <div className="px-6 pb-5 text-sm text-[#8FA3B8] leading-relaxed border-t border-[#1065D8]/10 pt-4 animate-in fade-in duration-200">
                     {faq.a}
                   </div>
                 )}
