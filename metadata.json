@@ -1,0 +1,6 @@
+{
+  "name": "Legacy Renewable Energy",
+  "description": "Landing page com calculadora de economia energética e diagnóstico automático para Legacy Renewable Energy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
