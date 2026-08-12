@@ -1,38 +1,43 @@
 import React from 'react';
-import { FormInput, Cpu, Route, MessageSquareText, ArrowRight } from 'lucide-react';
+import { FormInput, Cpu, Route, MessageSquareText, ArrowRight, Zap } from 'lucide-react';
 
 export const HowItWorks: React.FC = () => {
+  const scrollToCalculator = () => {
+    const el = document.getElementById('calculadora');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const steps = [
     {
       number: '01',
       title: 'Informe seus dados',
       icon: FormInput,
-      description: 'Preencha informações básicas sobre consumo, cidade e tipo de imóvel.',
+      description: 'Consumo, cidade e tipo de imóvel.',
     },
     {
       number: '02',
       title: 'A calculadora analisa seu perfil',
       icon: Cpu,
-      description: 'O sistema cruza seu consumo e localização para encontrar a rota ideal.',
+      description: 'Cruzamos consumo, localização e objetivo.',
     },
     {
       number: '03',
       title: 'Receba uma rota indicada',
       icon: Route,
-      description: 'Veja um diagnóstico inicial com a solução Comerc mais compatível.',
+      description: 'Veja uma solução inicial compatível.',
     },
     {
       number: '04',
       title: 'Continue pelo WhatsApp',
       icon: MessageSquareText,
-      description: 'Envie seus dados formatados diretamente para o atendimento especializado.',
+      description: 'Seus dados chegam organizados para atendimento.',
     },
   ];
 
   return (
-    <section id="como-funciona" className="py-12 md:py-16 bg-white relative overflow-hidden">
+    <section id="como-funciona" className="py-10 md:py-14 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
           <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
             Simplicidade & Agilidade
           </span>
@@ -84,8 +89,21 @@ export const HowItWorks: React.FC = () => {
             );
           })}
         </div>
+
+        {/* CTA Button below steps */}
+        <div className="mt-8 text-center">
+          <button
+            onClick={scrollToCalculator}
+            className="neon-glow-btn px-7 py-3 rounded-xl text-sm font-extrabold inline-flex items-center gap-2 cursor-pointer shadow-md"
+          >
+            <Zap className="w-4 h-4 fill-current text-white" />
+            <span>Preencher calculadora agora</span>
+            <ArrowRight className="w-4 h-4 text-white" />
+          </button>
+        </div>
       </div>
     </section>
   );
 };
+
 

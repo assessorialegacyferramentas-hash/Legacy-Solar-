@@ -106,7 +106,7 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
         <div className="flex items-start justify-center gap-2 text-[11px] text-[#64748B] max-w-2xl mx-auto text-left sm:text-center pt-2 font-medium">
           <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
           <span>
-            Esta é uma simulação inicial. A solução final depende da análise do perfil de consumo, disponibilidade na região e condições comerciais aplicáveis.
+            Esta é uma simulação inicial. A solução final depende da análise do perfil, região e condições aplicáveis.
           </span>
         </div>
       </div>

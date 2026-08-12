@@ -151,10 +151,10 @@ export const Hero: React.FC = () => {
                       {formatBRL(previewAnnual)}
                     </p>
                   </div>
-                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
-                    <p className="text-[11px] text-[#059669] font-bold">Economia Estimada/Ano</p>
-                    <p className="text-base font-extrabold text-[#059669] mt-0.5">
-                      ~ {formatBRL(previewSavingsMin)} a {formatBRL(previewSavingsMax)}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <p className="text-[11px] text-[#059669] font-bold">Resultado após simulação</p>
+                    <p className="text-[11px] text-[#475569] mt-0.5 font-medium leading-tight">
+                      Informe seus dados para receber uma análise inicial.
                     </p>
                   </div>
                 </div>

@@ -51,28 +51,16 @@ export const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-200">
             <button
-              onClick={() => scrollToSection('calculadora')}
-              className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
-            >
-              Calculadora
-            </button>
-            <button
-              onClick={() => scrollToSection('solucoes')}
-              className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
-            >
-              Soluções
-            </button>
-            <button
               onClick={() => scrollToSection('como-funciona')}
               className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
             >
               Como Funciona
             </button>
             <button
-              onClick={() => scrollToSection('faq')}
+              onClick={() => scrollToSection('calculadora')}
               className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
             >
-              Dúvidas
+              Calculadora
             </button>
           </nav>
 
@@ -103,32 +91,18 @@ export const Header: React.FC = () => {
         <div className="md:hidden bg-[#0B0F17]/98 border-b border-slate-800 px-4 pt-4 pb-6 space-y-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top duration-200">
           <nav className="flex flex-col gap-3 text-base font-semibold text-slate-200">
             <button
+              onClick={() => scrollToSection('como-funciona')}
+              className="flex items-center justify-between p-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-left"
+            >
+              <span>Como Funciona</span>
+              <ChevronRight className="w-4 h-4 text-[#00B86B]" />
+            </button>
+            <button
               onClick={() => scrollToSection('calculadora')}
               className="flex items-center justify-between p-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-left"
             >
               <span>Calculadora</span>
               <ChevronRight className="w-4 h-4 text-[#00B86B]" />
-            </button>
-            <button
-              onClick={() => scrollToSection('solucoes')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
-            >
-              <span>Soluções</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
-            <button
-              onClick={() => scrollToSection('como-funciona')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
-            >
-              <span>Como Funciona</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
-            </button>
-            <button
-              onClick={() => scrollToSection('faq')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900/50 text-left hover:text-[#00B86B]"
-            >
-              <span>Dúvidas</span>
-              <ChevronRight className="w-4 h-4 text-slate-500" />
             </button>
           </nav>
           <button

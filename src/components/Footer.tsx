@@ -37,29 +37,24 @@ export const Footer: React.FC = () => {
             <p className="text-xs font-bold text-white uppercase tracking-wider">Navegação</p>
             <ul className="space-y-2 text-xs font-medium">
               <li>
-                <button onClick={() => scrollToSection('calculadora')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
-                  Calculadora de Economia
-                </button>
-              </li>
-              <li>
                 <button onClick={() => scrollToSection('como-funciona')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
-                  Como Funciona a Simulação
+                  Como Funciona
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('solucoes')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
-                  Soluções Comerc
+                <button onClick={() => scrollToSection('calculadora')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
+                  Simular Economia
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('beneficios')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
-                  Benefícios da Análise
-                </button>
-              </li>
-              <li>
-                <button onClick={() => scrollToSection('faq')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
-                  Perguntas Frequentes (FAQ)
-                </button>
+                <a
+                  href="https://wa.me/5584996177978"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF] block"
+                >
+                  Falar com Especialista
+                </a>
               </li>
             </ul>
           </div>

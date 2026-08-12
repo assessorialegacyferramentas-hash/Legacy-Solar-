@@ -1,14 +1,8 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { QuickBenefits } from './components/QuickBenefits';
-import { PainBlock } from './components/PainBlock';
 import { HowItWorks } from './components/HowItWorks';
 import { EnergyCalculator } from './components/EnergyCalculator';
-import { SolutionsSection } from './components/SolutionsSection';
-import { LegacyMethodSection } from './components/LegacyMethodSection';
-import { BenefitsSection } from './components/BenefitsSection';
-import { FAQSection } from './components/FAQSection';
 import { FinalCTA } from './components/FinalCTA';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { Footer } from './components/Footer';
@@ -20,42 +14,25 @@ export default function App() {
       <Header />
 
       <main>
-        {/* 2. Hero */}
+        {/* 2. Hero com card de simulação rápida */}
         <Hero />
 
-        {/* 3. Bloco Rápido de Benefícios */}
-        <QuickBenefits />
-
-        {/* 4. Cards de Perfil & 5. Impacto da Conta */}
-        <PainBlock />
-
-        {/* 6. Como Funciona */}
-        <HowItWorks />
-
-        {/* 7. Calculadora & 8. Resultado */}
+        {/* 3. Calculadora principal completa & Resultado */}
         <EnergyCalculator />
 
-        {/* 9. Soluções Comerc */}
-        <SolutionsSection />
+        {/* 4. Como Funciona */}
+        <HowItWorks />
 
-        {/* 10. Por Que Começar Pela Análise & 11. Frase Institucional */}
-        <LegacyMethodSection />
-
-        {/* 12. O Que Você Descobre */}
-        <BenefitsSection />
-
-        {/* 13. FAQ Enxuto */}
-        <FAQSection />
-
-        {/* 14. CTA Final */}
+        {/* 5. Widget Final "Energia pode ser mais simples, inteligente e econômica" */}
         <FinalCTA />
       </main>
 
-      {/* Floating WhatsApp Action Button */}
+      {/* 8. WhatsApp Flutuante */}
       <FloatingWhatsApp />
 
-      {/* 15. Footer */}
+      {/* 7. Footer */}
       <Footer />
     </div>
   );
 }
+
