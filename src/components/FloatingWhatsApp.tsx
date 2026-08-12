@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageSquare, Zap } from 'lucide-react';
 
 export const FloatingWhatsApp: React.FC = () => {
+  const [isCalculatorInView, setIsCalculatorInView] = useState(false);
+
+  useEffect(() => {
+    const calcEl = document.getElementById('calculadora');
+    if (!calcEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCalculatorInView(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(calcEl);
+    return () => observer.disconnect();
+  }, []);
+
   const defaultWhatsappMsg = encodeURIComponent(
     'Olá! Estava navegando no site da Comerc Energia e gostaria de simular meu potencial de economia energética.'
   );
@@ -36,16 +53,18 @@ export const FloatingWhatsApp: React.FC = () => {
         </a>
       </div>
 
-      {/* Mobile Bottom Sticky Bar for Instant Calculation */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 p-3 bg-[#0B0F17]/95 backdrop-blur-md border-t border-white/10 shadow-2xl">
-        <button
-          onClick={scrollToCalculator}
-          className="w-full neon-glow-btn py-3 rounded-xl text-sm font-black flex items-center justify-center gap-2 cursor-pointer"
-        >
-          <Zap className="w-4 h-4 fill-current text-[#0B0F17]" />
-          <span>Calcular economia agora</span>
-        </button>
-      </div>
+      {/* Mobile Bottom Sticky Bar for Instant Calculation (hidden when viewing calculator section) */}
+      {!isCalculatorInView && (
+        <div className="sm:hidden fixed bottom-0 left-0 right-0 z-30 p-3 bg-[#0B0F17]/95 backdrop-blur-md border-t border-white/10 shadow-2xl transition-opacity duration-300">
+          <button
+            onClick={scrollToCalculator}
+            className="w-full neon-glow-btn py-3 rounded-xl text-sm font-black flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <Zap className="w-4 h-4 fill-current text-[#0B0F17]" />
+            <span>Calcular economia agora</span>
+          </button>
+        </div>
+      )}
     </>
   );
 };

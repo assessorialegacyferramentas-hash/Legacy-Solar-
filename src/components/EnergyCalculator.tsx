@@ -4,11 +4,6 @@ import {
   ClientType,
   PropertyType,
   PropertyOwnership,
-  RoofAvailability,
-  SolarStatus,
-  MainObjective,
-  Timeframe,
-  PreferredContactTime,
   BRAZILIAN_STATES,
 } from '../types';
 import {
@@ -18,26 +13,20 @@ import {
   computeDiagnostic,
 } from '../utils/calculator';
 import { ResultPanel } from './ResultPanel';
-import { Zap, ShieldCheck, User, Building2, DollarSign, Home, CheckSquare, Sparkles } from 'lucide-react';
+import { Zap, ShieldCheck, User, Building2, DollarSign, Sparkles } from 'lucide-react';
 
 export const EnergyCalculator: React.FC = () => {
   const [formData, setFormData] = useState<CalculatorFormData>({
     fullName: '',
     whatsapp: '',
     email: '',
-    clientType: 'Empresa / CNPJ',
+    clientType: 'Pessoa Física / Residencial',
     documentNumber: '',
     city: '',
     state: 'SP',
-    monthlyBill: 'R$ 2.500,00',
-    propertyType: 'Comércio',
+    monthlyBill: 'R$ 800,00',
+    propertyType: 'Casa',
     ownership: 'Próprio',
-    roofAvailability: 'Sim',
-    landAvailability: 'Não',
-    hasSolarPanels: 'Estou pesquisando',
-    mainObjective: 'Reduzir minha conta de energia',
-    timeframe: 'O quanto antes',
-    preferredContactTime: 'Qualquer horário',
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -58,13 +47,8 @@ export const EnergyCalculator: React.FC = () => {
       'monthlyBill',
       'propertyType',
       'ownership',
-      'roofAvailability',
-      'hasSolarPanels',
-      'mainObjective',
-      'timeframe',
-      'preferredContactTime',
     ];
-    const filledCount = fields.filter((f) => String(formData[f]).trim().length > 0).length;
+    const filledCount = fields.filter((f) => String(formData[f] || '').trim().length > 0).length;
     return Math.round((filledCount / fields.length) * 100);
   };
 
@@ -139,13 +123,14 @@ export const EnergyCalculator: React.FC = () => {
   };
 
   const progress = calculateProgress();
+  const isCpfType = formData.clientType === 'Pessoa Física / Residencial';
 
   return (
     <section id="calculadora" className="py-12 md:py-16 bg-[#F8FAFC] relative overflow-hidden border-t border-b border-slate-200">
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-radial-green opacity-40 pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12 sm:pb-0">
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
           <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
             Calculadora de Economia
@@ -258,7 +243,7 @@ export const EnergyCalculator: React.FC = () => {
                     onChange={(e) => handleClientTypeChange(e.target.value as ClientType)}
                     className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all cursor-pointer shadow-sm"
                   >
-                    <option value="Pessoa Física / Residência">Pessoa Física / Residência</option>
+                    <option value="Pessoa Física / Residencial">Pessoa Física / Residencial</option>
                     <option value="Empresa / CNPJ">Empresa / CNPJ</option>
                     <option value="Condomínio">Condomínio</option>
                     <option value="Produtor rural">Produtor rural</option>
@@ -271,17 +256,13 @@ export const EnergyCalculator: React.FC = () => {
                 {/* 5. CPF ou CNPJ */}
                 <div>
                   <label className="block text-xs font-bold text-[#334155] mb-1.5">
-                    {formData.clientType === 'Pessoa Física / Residência' ? 'CPF' : 'CNPJ'}
+                    {isCpfType ? 'CPF *' : 'CNPJ *'}
                   </label>
                   <input
                     type="text"
                     value={formData.documentNumber}
                     onChange={(e) => handleInputChange('documentNumber', e.target.value)}
-                    placeholder={
-                      formData.clientType === 'Pessoa Física / Residência'
-                        ? '000.000.000-00'
-                        : '00.000.000/0000-00'
-                    }
+                    placeholder={isCpfType ? '000.000.000-00' : '00.000.000/0000-00'}
                     className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
@@ -336,7 +317,7 @@ export const EnergyCalculator: React.FC = () => {
                     type="text"
                     value={formData.monthlyBill}
                     onChange={(e) => handleInputChange('monthlyBill', e.target.value)}
-                    placeholder="Ex.: R$ 2.500,00"
+                    placeholder="Ex.: R$ 800,00"
                     className="w-full px-4 py-3 rounded-xl bg-emerald-50/60 border border-[#00B86B]/40 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#059669] font-bold text-base outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
@@ -382,112 +363,6 @@ export const EnergyCalculator: React.FC = () => {
                     <option value="Alugado">Alugado</option>
                     <option value="Financiado">Financiado</option>
                     <option value="Não sei / preciso avaliar">Não sei / preciso avaliar</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* SECTION 4: Estrutura & Uso prévio de Energia Solar */}
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#059669] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <Home className="w-4 h-4" /> 4. Estrutura Física & Conhecimento Solar
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {/* 11. Telhado disponível */}
-                <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1.5">
-                    Você possui telhado disponível? *
-                  </label>
-                  <select
-                    value={formData.roofAvailability}
-                    onChange={(e) => handleInputChange('roofAvailability', e.target.value as RoofAvailability)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
-                  >
-                    <option value="Sim">Sim</option>
-                    <option value="Não">Não</option>
-                    <option value="Moro em apartamento">Moro em apartamento</option>
-                    <option value="Não sei informar">Não sei informar</option>
-                  </select>
-                </div>
-
-                {/* 12. Já usa ou já pesquisou energia solar? */}
-                <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1.5">
-                    Você já usa ou já pesquisou energia solar? *
-                  </label>
-                  <select
-                    value={formData.hasSolarPanels}
-                    onChange={(e) => handleInputChange('hasSolarPanels', e.target.value as SolarStatus)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
-                  >
-                    <option value="Estou pesquisando">Estou pesquisando</option>
-                    <option value="Já uso">Já uso</option>
-                    <option value="Já fiz orçamento">Já fiz orçamento</option>
-                    <option value="Nunca pesquisei">Nunca pesquisei</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* SECTION 5: Objetivo, Prazo & Horário */}
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#059669] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
-                <CheckSquare className="w-4 h-4" /> 5. Objetivo & Preferências
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {/* 13. Qual seu principal objetivo? */}
-                <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1.5">
-                    Qual seu principal objetivo? *
-                  </label>
-                  <select
-                    value={formData.mainObjective}
-                    onChange={(e) => handleInputChange('mainObjective', e.target.value as MainObjective)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
-                  >
-                    <option value="Reduzir minha conta de energia">Reduzir minha conta de energia</option>
-                    <option value="Economizar sem instalar placas">Economizar sem instalar placas</option>
-                    <option value="Avaliar assinatura de energia solar">Avaliar assinatura de energia solar</option>
-                    <option value="Entender soluções para minha empresa">Entender soluções para minha empresa</option>
-                    <option value="Avaliar mercado livre de energia">Avaliar mercado livre de energia</option>
-                    <option value="Fazer diagnóstico energético">Fazer diagnóstico energético</option>
-                    <option value="Outro">Outro</option>
-                  </select>
-                </div>
-
-                {/* 14. Prazo de interesse */}
-                <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1.5">
-                    Prazo de interesse *
-                  </label>
-                  <select
-                    value={formData.timeframe}
-                    onChange={(e) => handleInputChange('timeframe', e.target.value as Timeframe)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
-                  >
-                    <option value="O quanto antes">O quanto antes</option>
-                    <option value="Nos próximos 30 dias">Nos próximos 30 dias</option>
-                    <option value="Em até 3 meses">Em até 3 meses</option>
-                    <option value="Só pesquisando">Só pesquisando</option>
-                  </select>
-                </div>
-
-                {/* 15. Melhor horário para contato */}
-                <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1.5">
-                    Melhor horário para contato *
-                  </label>
-                  <select
-                    value={formData.preferredContactTime}
-                    onChange={(e) => handleInputChange('preferredContactTime', e.target.value as PreferredContactTime)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
-                  >
-                    <option value="Qualquer horário">Qualquer horário</option>
-                    <option value="Manhã">Manhã</option>
-                    <option value="Tarde">Tarde</option>
-                    <option value="Noite">Noite</option>
                   </select>
                 </div>
               </div>

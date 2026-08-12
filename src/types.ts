@@ -1,5 +1,5 @@
 export type ClientType =
-  | 'Pessoa Física / Residência'
+  | 'Pessoa Física / Residencial'
   | 'Empresa / CNPJ'
   | 'Condomínio'
   | 'Produtor rural'
@@ -80,12 +80,12 @@ export interface CalculatorFormData {
   monthlyBill: string;
   propertyType: PropertyType;
   ownership: PropertyOwnership;
-  roofAvailability: RoofAvailability;
-  landAvailability: LandAvailability;
-  hasSolarPanels: SolarStatus;
-  mainObjective: MainObjective;
-  timeframe: Timeframe;
-  preferredContactTime: PreferredContactTime;
+  roofAvailability?: RoofAvailability;
+  landAvailability?: LandAvailability;
+  hasSolarPanels?: SolarStatus;
+  mainObjective?: MainObjective;
+  timeframe?: Timeframe;
+  preferredContactTime?: PreferredContactTime;
 }
 
 export interface DiagnosticResult {

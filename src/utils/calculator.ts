@@ -11,7 +11,7 @@ export function formatWhatsApp(value: string): string {
 // Mask CPF / CNPJ dynamically
 export function formatDocument(value: string, clientType: string): string {
   const digits = value.replace(/\D/g, '');
-  const isCpf = clientType === 'Pessoa Física / Residência';
+  const isCpf = clientType === 'Pessoa Física / Residencial' || clientType === 'Pessoa Física / Residência';
 
   if (isCpf) {
     const cpfDigits = digits.slice(0, 11);
@@ -89,41 +89,44 @@ export function computeDiagnostic(data: CalculatorFormData): DiagnosticResult {
     priorityScorePercent = 98;
   }
 
-  // Solution Indication Logic according to prompt section 9 (Comerc Energia)
+  // Solution Indication Logic according to prompt rules:
   let solutionTitle = '';
   let solutionDescription = '';
 
-  const isB2B = data.clientType === 'Empresa / CNPJ' || data.clientType === 'Comércio' || data.clientType === 'Indústria' || data.clientType === 'Condomínio';
+  const isB2B =
+    data.clientType === 'Empresa / CNPJ' ||
+    data.clientType === 'Comércio' ||
+    data.clientType === 'Indústria' ||
+    data.clientType === 'Condomínio' ||
+    data.clientType === 'Produtor rural';
 
-  if (isB2B && monthlyBillValue >= 5000) {
-    solutionTitle = 'Gestão de Energia / Mercado Livre';
-    solutionDescription = 'Sua operação pode exigir uma análise mais estratégica, considerando gestão de energia, perfil de consumo e possíveis alternativas no mercado de energia.';
-  } else if (isB2B && monthlyBillValue >= 2000) {
-    solutionTitle = 'Soluções de Energia para Empresas';
-    solutionDescription = 'Sua empresa pode ter potencial para uma análise energética mais completa, considerando perfil de consumo, gestão de energia e soluções para redução de custos.';
-  } else if (
-    data.ownership === 'Alugado' ||
-    data.roofAvailability === 'Moro em apartamento' ||
-    data.roofAvailability === 'Não' ||
-    data.mainObjective === 'Economizar sem instalar placas' ||
-    data.mainObjective === 'Avaliar assinatura de energia solar'
+  if (
+    data.clientType === 'Pessoa Física / Residencial' &&
+    data.propertyType === 'Casa'
   ) {
-    solutionTitle = 'Assinatura de Energia Solar';
-    solutionDescription = 'Seu perfil pode combinar com uma solução de assinatura de energia solar, que permite avaliar economia sem necessidade de instalação de placas no imóvel.';
-  } else if (data.mainObjective === 'Fazer diagnóstico energético') {
-    solutionTitle = 'Diagnóstico Energético Completo';
-    solutionDescription = 'Antes de escolher uma solução, o ideal é entender seu perfil de consumo e avaliar qual alternativa energética faz mais sentido.';
-  } else if (data.clientType === 'Pessoa Física / Residência') {
-    solutionTitle = 'Energia Solar por Assinatura';
-    solutionDescription = 'Você pode avaliar uma solução de energia solar por assinatura, sem obra e sem instalação no local de consumo.';
+    solutionTitle = 'Energia solar por assinatura ou solução residencial';
+    solutionDescription = 'Sua residência pode avaliar a solução ideal de energia solar para gerar economia na conta de luz.';
+  } else if (
+    data.propertyType === 'Apartamento' ||
+    data.ownership === 'Alugado'
+  ) {
+    solutionTitle = 'Assinatura solar';
+    solutionDescription = 'Seu imóvel tem perfil ideal para assinatura solar, que garante economia diretamente na conta de energia sem necessidade de obras ou instalação de placas.';
+  } else if (monthlyBillValue > 5000) {
+    solutionTitle = 'Gestão de Energia / Mercado Livre';
+    solutionDescription = 'Para faturas acima de R$ 5.000, sua operação pode se beneficiar de migração para o Mercado Livre de Energia ou gestão energética consultiva Comercial.';
+  } else if (isB2B) {
+    solutionTitle = 'Solução empresarial de energia';
+    solutionDescription = 'Sua empresa ou estabelecimento possui potencial para reduzir custos fixos com soluções energéticas personalizadas da Comerc.';
   } else {
-    solutionTitle = 'Atendimento Consultivo Comerc';
-    solutionDescription = 'Seu perfil precisa de uma avaliação consultiva para entender qual solução de energia da Comerc pode gerar mais valor.';
+    solutionTitle = 'Diagnóstico energético inicial';
+    solutionDescription = 'Sua solicitação passará por uma análise inicial do perfil de consumo para mapear a melhor alternativa energética.';
   }
 
   // Construct structured WhatsApp message for Comerc Energia
-  const documentTypeLabel = data.clientType === 'Pessoa Física / Residência' ? 'CPF' : 'CPF/CNPJ';
-  const docText = data.documentNumber ? `${data.documentNumber}` : 'Não informado';
+  const isCpfType = data.clientType === 'Pessoa Física / Residencial';
+  const docLabel = isCpfType ? 'CPF' : 'CPF/CNPJ';
+  const docText = data.documentNumber ? data.documentNumber : 'Não informado';
 
   const messageText = `Olá! Fiz uma simulação de economia energética no site da Comerc Energia e gostaria de continuar minha análise.
 
@@ -131,16 +134,12 @@ Nome: ${data.fullName}
 WhatsApp: ${data.whatsapp}
 E-mail: ${data.email}
 Tipo de cliente: ${data.clientType}
-${documentTypeLabel}: ${docText}
+${docLabel}: ${docText}
 Cidade/UF: ${data.city} - ${data.state}
 Conta média de energia: ${data.monthlyBill}
 Despesa anual estimada: R$ ${formatBRL(annualExpense).replace('R$', '').trim()}
 Tipo de imóvel/operação: ${data.propertyType}
 Imóvel: ${data.ownership}
-Telhado disponível: ${data.roofAvailability}
-Já usa ou pesquisou energia solar: ${data.hasSolarPanels}
-Principal objetivo: ${data.mainObjective}
-Prazo de interesse: ${data.timeframe}
 Solução indicada: ${solutionTitle}
 
 Quero receber uma análise consultiva para entender qual solução de energia faz mais sentido para meu perfil.`;
