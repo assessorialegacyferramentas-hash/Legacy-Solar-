@@ -19,8 +19,8 @@ export const FinalCTA: React.FC = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-radial-solar opacity-40 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div className="rounded-3xl p-8 sm:p-12 border-2 border-[#00B86B]/40 shadow-xl space-y-6 bg-white">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] tracking-wider uppercase">
+        <div className="rounded-3xl p-8 sm:p-12 border-2 border-[#9EDBB9] shadow-xl space-y-6 bg-white">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E8F6EE] border border-[#9EDBB9] text-xs font-bold text-[#004415] tracking-wider uppercase">
             <Zap className="w-4 h-4 fill-current" />
             <span>Comerc Energia</span>
           </div>
@@ -48,15 +48,15 @@ export const FinalCTA: React.FC = () => {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-[#0F172A] bg-slate-100 hover:bg-slate-200 border border-slate-300 hover:border-[#00B86B] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm text-base"
+              className="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-[#0F172A] bg-slate-100 hover:bg-slate-200 border border-slate-300 hover:border-[#004415] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm text-base"
             >
-              <MessageSquare className="w-5 h-5 text-[#059669]" />
+              <MessageSquare className="w-5 h-5 text-[#004415]" />
               <span>Falar com especialista</span>
             </a>
           </div>
 
           <div className="pt-2 flex items-center justify-center gap-2 text-xs text-[#64748B] font-medium">
-            <ShieldCheck className="w-4 h-4 text-[#059669]" />
+            <ShieldCheck className="w-4 h-4 text-[#004415]" />
             <span>Simulação inicial gratuita • Para residências e empresas • Atendimento consultivo</span>
           </div>
         </div>

@@ -47,7 +47,7 @@ export const FloatingWhatsApp: React.FC = () => {
           <MessageSquare className="w-7 h-7 fill-current" />
 
           {/* Hover Tooltip */}
-          <span className="absolute right-16 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-[#131B2A] border border-[#20D489]/40 text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
+          <span className="absolute right-16 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-[#131B2A] border border-[#9EDBB9]/40 text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-xl">
             Atendimento Comerc Energia
           </span>
         </a>
@@ -60,7 +60,7 @@ export const FloatingWhatsApp: React.FC = () => {
             onClick={scrollToCalculator}
             className="w-full neon-glow-btn py-3 rounded-xl text-sm font-black flex items-center justify-center gap-2 cursor-pointer"
           >
-            <Zap className="w-4 h-4 fill-current text-[#0B0F17]" />
+            <Zap className="w-4 h-4 fill-current text-white" />
             <span>Calcular economia agora</span>
           </button>
         </div>

@@ -15,14 +15,15 @@
   }
 }
 
-/* Custom Comerc Color Tokens - Light Theme with White, Slate & Energetic Green */
+/* Custom Comerc Color Tokens - Official Comerc Green (#004415) */
 :root {
   --bg-main: #FFFFFF;
   --bg-card: #F8FAFC;
   --bg-card-subtle: #F1F5F9;
-  --green-comerc: #00B86B;
-  --green-dark: #059669;
-  --green-bright: #10B981;
+  --green-comerc: #004415;
+  --green-hover: #006322;
+  --green-soft: #E8F6EE;
+  --green-border: #9EDBB9;
   --text-dark: #0F172A;
   --text-muted: #475569;
   --border-light: #E2E8F0;
@@ -38,11 +39,11 @@
 }
 
 .bg-radial-solar {
-  background: radial-gradient(circle at 85% 15%, rgba(0, 184, 107, 0.08) 0%, rgba(248, 250, 252, 0.4) 40%, transparent 70%);
+  background: radial-gradient(circle at 85% 15%, rgba(0, 68, 21, 0.08) 0%, rgba(248, 250, 252, 0.4) 40%, transparent 70%);
 }
 
 .bg-radial-green {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 184, 107, 0.1) 0%, rgba(16, 185, 129, 0.04) 60%, transparent 80%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 68, 21, 0.1) 0%, rgba(0, 68, 21, 0.04) 60%, transparent 80%);
 }
 
 .glass-card {
@@ -56,37 +57,54 @@
 }
 
 .glass-card-hover:hover {
-  border-color: #00B86B;
-  box-shadow: 0 10px 25px -5px rgba(0, 184, 107, 0.15);
+  border-color: #004415;
+  box-shadow: 0 10px 25px -5px rgba(0, 68, 21, 0.15);
   transform: translateY(-2px);
 }
 
 .neon-border-green {
-  border: 1px solid rgba(0, 184, 107, 0.4);
-  box-shadow: 0 0 15px rgba(0, 184, 107, 0.15);
+  border: 1px solid #9EDBB9;
+  box-shadow: 0 0 15px rgba(0, 68, 21, 0.15);
 }
 
+/* Primary Button Style - #004415 */
 .neon-glow-btn {
-  background: linear-gradient(135deg, #00B86B 0%, #059669 100%);
+  background-color: #004415;
   color: #ffffff;
   font-weight: 800;
-  box-shadow: 0 4px 14px rgba(0, 184, 107, 0.35);
+  border: 1px solid rgba(0, 68, 21, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 68, 21, 0.25);
   transition: all 0.25s ease;
 }
 
 .neon-glow-btn:hover {
-  box-shadow: 0 6px 20px rgba(0, 184, 107, 0.45);
+  background-color: #006322;
+  box-shadow: 0 12px 28px rgba(0, 68, 21, 0.35);
   transform: translateY(-1px);
 }
 
+/* Secondary Button Style */
+.secondary-btn {
+  background-color: #F4F8F6;
+  color: #004415;
+  border: 1px solid #9EDBB9;
+  font-weight: 700;
+  transition: all 0.25s ease;
+}
+
+.secondary-btn:hover {
+  background-color: #E8F6EE;
+  border-color: #004415;
+}
+
 .text-gradient-green {
-  background: linear-gradient(135deg, #0F172A 0%, #00B86B 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #004415 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-solar {
-  background: linear-gradient(135deg, #0F172A 0%, #059669 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #004415 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -103,6 +121,6 @@
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00B86B;
+  background: #004415;
 }
 

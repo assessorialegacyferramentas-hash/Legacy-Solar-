@@ -132,7 +132,7 @@ export const EnergyCalculator: React.FC = () => {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12 sm:pb-0">
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
+          <span className="px-3.5 py-1.5 rounded-full bg-[#E8F6EE] border border-[#9EDBB9] text-xs font-bold text-[#004415] uppercase tracking-wider">
             Calculadora de Economia
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight">
@@ -148,7 +148,7 @@ export const EnergyCalculator: React.FC = () => {
           {/* Progress Header */}
           <div className="mb-8 p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#059669]">
+              <div className="w-10 h-10 rounded-xl bg-[#E8F6EE] border border-[#9EDBB9] flex items-center justify-center text-[#004415]">
                 <Zap className="w-5 h-5 fill-current" />
               </div>
               <div>
@@ -159,7 +159,7 @@ export const EnergyCalculator: React.FC = () => {
 
             <div className="w-full sm:w-64 bg-slate-200 h-3 rounded-full overflow-hidden border border-slate-300">
               <div
-                className="bg-gradient-to-r from-[#00B86B] to-[#059669] h-full transition-all duration-300"
+                className="bg-[#004415] h-full transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -177,7 +177,7 @@ export const EnergyCalculator: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* SECTION 1: Dados Pessoais & Contato */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#059669] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#004415] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
                 <User className="w-4 h-4" /> 1. Dados de Contato
               </h3>
 
@@ -192,7 +192,7 @@ export const EnergyCalculator: React.FC = () => {
                     value={formData.fullName}
                     onChange={(e) => handleInputChange('fullName', e.target.value)}
                     placeholder="Seu nome completo"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] focus:ring-1 focus:ring-[#004415] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
 
@@ -206,7 +206,7 @@ export const EnergyCalculator: React.FC = () => {
                     value={formData.whatsapp}
                     onChange={(e) => handleInputChange('whatsapp', e.target.value)}
                     placeholder="(11) 99999-9999"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] focus:ring-1 focus:ring-[#004415] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
 
@@ -220,7 +220,7 @@ export const EnergyCalculator: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="seu.email@exemplo.com"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] focus:ring-1 focus:ring-[#004415] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
               </div>
@@ -228,7 +228,7 @@ export const EnergyCalculator: React.FC = () => {
 
             {/* SECTION 2: Perfil do Cliente & Localização */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#059669] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#004415] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
                 <Building2 className="w-4 h-4" /> 2. Tipo de Cliente & Localização
               </h3>
 
@@ -241,7 +241,7 @@ export const EnergyCalculator: React.FC = () => {
                   <select
                     value={formData.clientType}
                     onChange={(e) => handleClientTypeChange(e.target.value as ClientType)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all cursor-pointer shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] focus:ring-1 focus:ring-[#004415] text-[#0F172A] text-sm outline-none transition-all cursor-pointer shadow-sm"
                   >
                     <option value="Pessoa Física / Residencial">Pessoa Física / Residencial</option>
                     <option value="Empresa / CNPJ">Empresa / CNPJ</option>
@@ -263,7 +263,7 @@ export const EnergyCalculator: React.FC = () => {
                     value={formData.documentNumber}
                     onChange={(e) => handleInputChange('documentNumber', e.target.value)}
                     placeholder={isCpfType ? '000.000.000-00' : '00.000.000/0000-00'}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] focus:ring-1 focus:ring-[#004415] text-[#0F172A] text-sm outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
 
@@ -278,7 +278,7 @@ export const EnergyCalculator: React.FC = () => {
                       value={formData.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
                       placeholder="Sua cidade"
-                      className="w-full px-3 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none shadow-sm"
+                      className="w-full px-3 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] text-[#0F172A] text-sm outline-none shadow-sm"
                     />
                   </div>
                   <div>
@@ -288,7 +288,7 @@ export const EnergyCalculator: React.FC = () => {
                     <select
                       value={formData.state}
                       onChange={(e) => handleInputChange('state', e.target.value)}
-                      className="w-full px-2 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
+                      className="w-full px-2 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
                     >
                       {BRAZILIAN_STATES.map((st) => (
                         <option key={st} value={st}>
@@ -303,7 +303,7 @@ export const EnergyCalculator: React.FC = () => {
 
             {/* SECTION 3: Consumo & Tipo de Imóvel */}
             <div>
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#059669] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#004415] mb-4 flex items-center gap-2 border-b border-slate-200 pb-2">
                 <DollarSign className="w-4 h-4" /> 3. Consumo Mensal & Imóvel
               </h3>
 
@@ -318,7 +318,7 @@ export const EnergyCalculator: React.FC = () => {
                     value={formData.monthlyBill}
                     onChange={(e) => handleInputChange('monthlyBill', e.target.value)}
                     placeholder="Ex.: R$ 800,00"
-                    className="w-full px-4 py-3 rounded-xl bg-emerald-50/60 border border-[#00B86B]/40 focus:border-[#00B86B] focus:ring-1 focus:ring-[#00B86B] text-[#059669] font-bold text-base outline-none transition-all placeholder:text-slate-400 shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-[#E8F6EE] border border-[#9EDBB9] focus:border-[#004415] focus:ring-1 focus:ring-[#004415] text-[#004415] font-bold text-base outline-none transition-all placeholder:text-slate-400 shadow-sm"
                   />
                 </div>
 
@@ -330,7 +330,7 @@ export const EnergyCalculator: React.FC = () => {
                   <select
                     value={formData.propertyType}
                     onChange={(e) => handleInputChange('propertyType', e.target.value as PropertyType)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
                   >
                     <option value="Casa">Casa</option>
                     <option value="Apartamento">Apartamento</option>
@@ -357,7 +357,7 @@ export const EnergyCalculator: React.FC = () => {
                   <select
                     value={formData.ownership}
                     onChange={(e) => handleInputChange('ownership', e.target.value as PropertyOwnership)}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#00B86B] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#004415] text-[#0F172A] text-sm outline-none cursor-pointer shadow-sm"
                   >
                     <option value="Próprio">Próprio</option>
                     <option value="Alugado">Alugado</option>
@@ -388,13 +388,13 @@ export const EnergyCalculator: React.FC = () => {
           {isLoading && (
             <div className="absolute inset-0 bg-white/95 backdrop-blur-xl rounded-3xl flex flex-col items-center justify-center p-6 z-30 animate-in fade-in duration-300">
               <div className="relative w-20 h-20 mb-6">
-                <div className="w-full h-full rounded-full border-4 border-slate-200 border-t-[#00B86B] animate-spin" />
-                <Zap className="w-8 h-8 text-[#00B86B] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+                <div className="w-full h-full rounded-full border-4 border-slate-200 border-t-[#004415] animate-spin" />
+                <Zap className="w-8 h-8 text-[#004415] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
               </div>
               <h3 className="text-xl font-bold text-[#0F172A] mb-2 text-center">
                 Gerando Diagnóstico Comercial Comerc
               </h3>
-              <p className="text-sm text-[#059669] font-semibold animate-pulse text-center">
+              <p className="text-sm text-[#004415] font-semibold animate-pulse text-center">
                 {loadingStepText}
               </p>
             </div>

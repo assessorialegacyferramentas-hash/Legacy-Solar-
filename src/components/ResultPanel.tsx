@@ -9,14 +9,14 @@ interface ResultPanelProps {
 
 export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
   return (
-    <div className="glass-card rounded-3xl p-6 sm:p-10 border-2 border-[#00B86B]/40 shadow-2xl relative overflow-hidden animate-in fade-in slide-in-from-bottom duration-500 bg-white">
+    <div className="glass-card rounded-3xl p-6 sm:p-10 border-2 border-[#9EDBB9] shadow-2xl relative overflow-hidden animate-in fade-in slide-in-from-bottom duration-500 bg-white">
       {/* Background Solar Accents */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-radial-green opacity-40 pointer-events-none" />
 
       {/* Header Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
-          <span className="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
+          <span className="px-3 py-1 rounded-full bg-[#E8F6EE] border border-[#9EDBB9] text-xs font-bold text-[#004415] uppercase tracking-wider">
             Análise Concluída
           </span>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] mt-2">
@@ -30,7 +30,7 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
         <div className="flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-xl border border-slate-200">
           <Sparkles className="w-4 h-4 text-amber-500" />
           <span className="text-xs font-bold text-[#64748B]">Classificação: </span>
-          <span className="text-xs font-extrabold text-[#059669] uppercase">{result.leadPriorityClass}</span>
+          <span className="text-xs font-extrabold text-[#004415] uppercase">{result.leadPriorityClass}</span>
         </div>
       </div>
 
@@ -42,12 +42,12 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
           <p className="text-[11px] text-[#64748B]">Custo acumulado estimado em 12 meses</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-1">
-          <p className="text-xs text-[#059669] font-bold uppercase tracking-wider">Economia Anual Potencial (Estimada)</p>
-          <p className="text-2xl font-black text-[#059669]">
+        <div className="p-5 rounded-2xl bg-[#E8F6EE] border border-[#9EDBB9] space-y-1">
+          <p className="text-xs text-[#004415] font-bold uppercase tracking-wider">Economia Anual Potencial (Estimada)</p>
+          <p className="text-2xl font-black text-[#004415]">
             {formatBRL(result.savingsConservative)} a {formatBRL(result.savingsOptimistic)}
           </p>
-          <p className="text-[11px] text-[#059669]/90 font-medium">Faixa estimada de redução conforme solução</p>
+          <p className="text-[11px] text-[#004415] font-medium">Faixa estimada de redução conforme solução</p>
         </div>
 
         <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
@@ -58,10 +58,10 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
       </div>
 
       {/* Indicated Solution Card */}
-      <div className="p-6 rounded-2xl bg-slate-50 border border-emerald-200 space-y-3 mb-8">
+      <div className="p-6 rounded-2xl bg-slate-50 border border-[#9EDBB9] space-y-3 mb-8">
         <div className="flex items-center gap-2.5">
-          <Zap className="w-5 h-5 text-[#00B86B] fill-current" />
-          <span className="text-xs font-bold uppercase tracking-wider text-[#059669]">
+          <Zap className="w-5 h-5 text-[#004415] fill-current" />
+          <span className="text-xs font-bold uppercase tracking-wider text-[#004415]">
             Solução Comerc Indicada
           </span>
         </div>
@@ -74,14 +74,14 @@ export const ResultPanel: React.FC<ResultPanelProps> = ({ result }) => {
           {result.solutionDescription}
         </p>
 
-        <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-[#059669]">
+        <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-[#004415]">
           <CheckCircle2 className="w-4 h-4" />
           <span>Direcionamento ideal com base no perfil e valor de conta informado</span>
         </div>
       </div>
 
       {/* Action CTA: Send data via WhatsApp */}
-      <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-50 via-slate-50 to-emerald-50 border border-emerald-200 text-center space-y-6">
+      <div className="p-6 rounded-2xl bg-gradient-to-r from-[#E8F6EE] via-slate-50 to-[#E8F6EE] border border-[#9EDBB9] text-center space-y-6">
         <div>
           <h4 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-1">
             Próximo Passo: Atendimento Consultivo Comerc

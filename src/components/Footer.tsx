@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <div className="flex items-center gap-2 text-xs font-bold text-white pt-1">
-              <Phone className="w-4 h-4 text-[#00B86B]" />
+              <Phone className="w-4 h-4 text-[#9EDBB9]" />
               <span>WhatsApp Comercial: +55 (84) 99617-7978</span>
             </div>
           </div>
@@ -37,12 +37,12 @@ export const Footer: React.FC = () => {
             <p className="text-xs font-bold text-white uppercase tracking-wider">Navegação</p>
             <ul className="space-y-2 text-xs font-medium">
               <li>
-                <button onClick={() => scrollToSection('como-funciona')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
+                <button onClick={() => scrollToSection('como-funciona')} className="hover:text-[#9EDBB9] transition-colors cursor-pointer text-[#9CA3AF]">
                   Como Funciona
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollToSection('calculadora')} className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF]">
+                <button onClick={() => scrollToSection('calculadora')} className="hover:text-[#9EDBB9] transition-colors cursor-pointer text-[#9CA3AF]">
                   Simular Economia
                 </button>
               </li>
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
                   href="https://wa.me/5584996177978"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#00B86B] transition-colors cursor-pointer text-[#9CA3AF] block"
+                  className="hover:text-[#9EDBB9] transition-colors cursor-pointer text-[#9CA3AF] block"
                 >
                   Falar com Especialista
                 </a>
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#9CA3AF] font-medium">
           <p>© 2026 COMERC ENERGIA. Todos os direitos reservados.</p>
           <p className="flex items-center gap-1.5">
-            <Zap className="w-3.5 h-3.5 text-[#00B86B]" />
+            <Zap className="w-3.5 h-3.5 text-[#9EDBB9]" />
             <span>Soluções de energia inteligente para residências e empresas.</span>
           </p>
         </div>

@@ -5,11 +5,12 @@ import { HowItWorks } from './components/HowItWorks';
 import { EnergyCalculator } from './components/EnergyCalculator';
 import { FinalCTA } from './components/FinalCTA';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { CookieBanner } from './components/CookieBanner';
 import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#00B86B] selection:text-white font-sans antialiased">
+    <div className="min-h-screen bg-white text-[#0F172A] selection:bg-[#004415] selection:text-white font-sans antialiased">
       {/* 1. Header */}
       <Header />
 
@@ -27,11 +28,14 @@ export default function App() {
         <FinalCTA />
       </main>
 
-      {/* 8. WhatsApp Flutuante */}
+      {/* 6. WhatsApp Flutuante */}
       <FloatingWhatsApp />
 
       {/* 7. Footer */}
       <Footer />
+
+      {/* 8. Banner de Cookies */}
+      <CookieBanner />
     </div>
   );
 }

@@ -25,8 +25,8 @@ export const Header: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#0B0F17]/95 backdrop-blur-md border-b border-white/10 py-3.5 shadow-lg'
-          : 'bg-[#0B0F17] border-b border-white/5 py-4'
+          ? 'bg-[#004415]/98 backdrop-blur-md border-b border-[#006322] py-3.5 shadow-xl'
+          : 'bg-[#004415] border-b border-[#006322]/50 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,16 +49,16 @@ export const Header: React.FC = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-200">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-white">
             <button
               onClick={() => scrollToSection('como-funciona')}
-              className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
+              className="hover:text-[#E8F6EE] transition-colors focus:outline-none cursor-pointer"
             >
               Como Funciona
             </button>
             <button
               onClick={() => scrollToSection('calculadora')}
-              className="hover:text-[#00B86B] transition-colors focus:outline-none cursor-pointer"
+              className="hover:text-[#E8F6EE] transition-colors focus:outline-none cursor-pointer"
             >
               Calculadora
             </button>
@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
           <div className="hidden md:block">
             <button
               onClick={() => scrollToSection('calculadora')}
-              className="neon-glow-btn px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 cursor-pointer shadow-md"
+              className="px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 cursor-pointer bg-[#006322] hover:bg-[#007A2A] text-white border border-[#9EDBB9]/30 shadow-[0_10px_25px_rgba(0,68,21,0.35)] transition-all"
             >
               <Zap className="w-4 h-4 fill-current text-white" />
               <span>Calcular economia</span>
@@ -78,36 +78,36 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-slate-200 hover:text-white rounded-lg bg-slate-800/80 border border-slate-700 focus:outline-none"
+            className="md:hidden p-2 text-white hover:text-[#E8F6EE] rounded-lg bg-[#006322] border border-[#9EDBB9]/30 focus:outline-none transition-colors"
             aria-label="Abrir Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-[#00B86B]" /> : <Menu className="w-6 h-6 text-[#00B86B]" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0B0F17]/98 border-b border-slate-800 px-4 pt-4 pb-6 space-y-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top duration-200">
-          <nav className="flex flex-col gap-3 text-base font-semibold text-slate-200">
+        <div className="md:hidden bg-[#004415]/98 border-b border-[#006322] px-4 pt-4 pb-6 space-y-4 shadow-2xl backdrop-blur-xl animate-in fade-in slide-in-from-top duration-200">
+          <nav className="flex flex-col gap-3 text-base font-semibold text-white">
             <button
               onClick={() => scrollToSection('como-funciona')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-left"
+              className="flex items-center justify-between p-3 rounded-lg bg-[#003310] border border-[#006322] text-white text-left hover:bg-[#006322] transition-colors"
             >
               <span>Como Funciona</span>
-              <ChevronRight className="w-4 h-4 text-[#00B86B]" />
+              <ChevronRight className="w-4 h-4 text-[#E8F6EE]" />
             </button>
             <button
               onClick={() => scrollToSection('calculadora')}
-              className="flex items-center justify-between p-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-left"
+              className="flex items-center justify-between p-3 rounded-lg bg-[#003310] border border-[#006322] text-white text-left hover:bg-[#006322] transition-colors"
             >
               <span>Calculadora</span>
-              <ChevronRight className="w-4 h-4 text-[#00B86B]" />
+              <ChevronRight className="w-4 h-4 text-[#E8F6EE]" />
             </button>
           </nav>
           <button
             onClick={() => scrollToSection('calculadora')}
-            className="w-full neon-glow-btn py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 text-base cursor-pointer"
+            className="w-full bg-[#006322] hover:bg-[#007A2A] text-white border border-[#9EDBB9]/30 shadow-[0_10px_25px_rgba(0,68,21,0.35)] py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 text-base cursor-pointer transition-all"
           >
             <Zap className="w-5 h-5 fill-current text-white" />
             <span>Calcular economia</span>

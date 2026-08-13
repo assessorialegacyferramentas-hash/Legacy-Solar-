@@ -38,7 +38,7 @@ export const HowItWorks: React.FC = () => {
     <section id="como-funciona" className="py-10 md:py-14 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-          <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#059669] uppercase tracking-wider">
+          <span className="px-3.5 py-1.5 rounded-full bg-[#E8F6EE] border border-[#9EDBB9] text-xs font-bold text-[#004415] uppercase tracking-wider">
             Simplicidade & Agilidade
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0F172A] tracking-tight">
@@ -56,19 +56,19 @@ export const HowItWorks: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="p-5 rounded-2xl border border-slate-200 hover:border-[#00B86B] transition-all group relative bg-white shadow-sm flex flex-col justify-between"
+                className="p-5 rounded-2xl border border-slate-200 hover:border-[#004415] transition-all group relative bg-white shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl font-black text-[#00B86B] tracking-wider">
+                    <span className="text-2xl font-black text-[#004415] tracking-wider">
                       {step.number}
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#00B86B] group-hover:scale-110 transition-transform">
+                    <div className="w-9 h-9 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-[#004415] group-hover:scale-110 transition-transform">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-[#0F172A] mb-1.5 group-hover:text-[#00B86B] transition-colors">
+                  <h3 className="text-base font-bold text-[#0F172A] mb-1.5 group-hover:text-[#004415] transition-colors">
                     {step.title}
                   </h3>
 
@@ -80,7 +80,7 @@ export const HowItWorks: React.FC = () => {
                 {/* Connector arrow on desktop */}
                 {idx < 3 && (
                   <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20">
-                    <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-[#00B86B] shadow-sm">
+                    <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center text-[#004415] shadow-sm">
                       <ArrowRight className="w-3 h-3" />
                     </div>
                   </div>
